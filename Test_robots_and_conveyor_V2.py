@@ -31,6 +31,8 @@ objectLocated = 0
 objectCount = 0
 CylinderConveyorCount = 0
 CylinderSensorCount = 0
+CubeConveyorCount = 0
+CubeSensorCount = 0
 
 
 #positions x, y, z, rx, ry, rz
@@ -175,7 +177,7 @@ def CylinderToConveyor():
 
 #Transition cylinder on conveyor to home (T3)
 def CylinderConveyorToHome():
-    global pickObjectConveyor_r2, pickObjectConveyorDown_r2, placeObjectHome_r2, placeObjectHomeDown_r2
+    global pickObjectConveyor_r2, pickObjectConveyorDown_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount
     rob2.send_program(rq_open())
     time.sleep(0.1)
     move(rob2, pickObjectConveyor_r2, True)
@@ -191,6 +193,7 @@ def CylinderConveyorToHome():
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
     time.sleep(0.2)
+    objectCount += 1
 
 
 #Transition cube to conveyor (T4)
@@ -219,7 +222,7 @@ def CubeToConveyor():
 
 #Transition cube on conveyor to home (T6)
 def CubeConveyorToHome():
-    global pickObjectConveyor_r1, pickObjectConveyorDown_r1, placeObjectHome_r1, placeObjectHomeDown_r1
+    global pickObjectConveyor_r1, pickObjectConveyorDown_r1, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount
     rob.send_program(rq_open())
     time.sleep(0.1)
     move(rob, pickObjectConveyor_r1, True)
@@ -235,12 +238,13 @@ def CubeConveyorToHome():
     time.sleep(0.6)
     move(rob, placeObjectHome_r1, True)
     time.sleep(0.2)
+    objectCount += 1
 
 
 #Transition cube to home (T7)
 def CubeToHome():
     locateObject(2,cam11,cam12)
-    global x, y, placeObjectHome_r1, placeObjectHomeDown_r1
+    global x, y, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount
     overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
     pickPos = x, y, 0.005, 0.0, 3.14, 0.0
     print(pickPos)
@@ -259,12 +263,13 @@ def CubeToHome():
     time.sleep(0.6)
     move(rob, placeObjectHome_r1, True)
     time.sleep(0.2)
+    objectCount += 1
 
 
 #Transition cylinder to home (T8)
 def CylinderToHome():
     locateObject(3,cam21,cam22)
-    global x, y, placeObjectHome_r2, placeObjectHomeDown_r2
+    global x, y, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount
     overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
     pickPos = x, y, 0.005, 0.0, 3.14, 0.0
     print(pickPos)
@@ -283,6 +288,7 @@ def CylinderToHome():
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
     time.sleep(0.2)
+    objectCount += 1
 
 
 
@@ -302,39 +308,83 @@ rob.set_tcp((0,0,0.16,0,0,0))
 move(rob, clearCamera, True)
 
 
-
-while locateObject(3,cam11,cam12)==True:
-    CylinderConveyorCount += 1
-    startConveyor()
-    while locateObject(3,cam21,cam22)==True:
-        Thread(target=CylinderToConveyor()).start()
-        Thread(target=CylinderToHome()).start()
-    CylinderToConveyor()
-    if sensors(1)<55:
-        CylinderSensorCount += 1
-        stopConveyor()
-        CylinderConveyorToHome()
+while objectCount < 12:
+    while locateObject(3,cam11,cam12)==True:
+        CylinderConveyorCount += 1
         startConveyor()
-    else:
-        continue
-while CylinderConveyorCount != CylinderSensorCount:
-    while locateObject(2,cam11,cam12):
-        def CylinderHome() :
-            global CylinderSensorCount
+        while locateObject(3,cam21,cam22)==True:
+            Thread(target=CylinderToConveyor()).start()
+            Thread(target=CylinderToHome()).start()
+        CylinderToConveyor()
+        if sensors(1)<55:
+            CylinderSensorCount += 1
+            stopConveyor()
+            CylinderConveyorToHome()
             startConveyor()
-            if sensors(1)<55:
-                CylinderSensorCount += 1
-                stopConveyor()
-                CylinderConveyorToHome()
-            else:
-                continue 
+        else:
+            continue
+    while CylinderConveyorCount != CylinderSensorCount:
+        while locateObject(2,cam11,cam12):
+            def CylinderHome() :
+                global CylinderSensorCount
+                startConveyor()
+                if sensors(1)<55:
+                    CylinderSensorCount += 1
+                    stopConveyor()
+                    CylinderConveyorToHome()
+                else:
+                    continue 
+            Thread(target=CubeToHome()).start()
+            Thread(target=CylinderHome()).start()
+        startConveyor()
+        if sensors(1)<55:
+            CylinderSensorCount += 1
+            stopConveyor()
+            CylinderConveyorToHome()
+        else:
+            continue
+            
+
+    while locateObject(2,cam21,cam22)==True:
+        CubeConveyorCount += 1
+        reverseConveyor()
+        while locateObject(2,cam11,cam12)==True:
+            Thread(target=CubeToConveyor()).start()
+            Thread(target=CubeToHome()).start()
+        CubeToConveyor()
+        if sensors(4)<55:
+            CubeSensorCount += 1
+            stopConveyor()
+            CubeConveyorToHome()
+            reverseConveyor()
+        else:
+            continue
+    while CubeConveyorCount != CubeSensorCount:
+        while locateObject(3,cam21,cam22):
+            def CubeHome() :
+                global CubeSensorCount
+                reverseConveyor()
+                if sensors(1)<55:
+                    CubeSensorCount += 1
+                    stopConveyor()
+                    CubeConveyorToHome()
+                else:
+                    continue 
+            Thread(target=CylinderToHome()).start()
+            Thread(target=CubeHome()).start()
+        reverseConveyor()
+        if sensors(4)<55:
+            CubeSensorCount += 1
+            stopConveyor()
+            CubeConveyorToHome()
+        else:
+            continue
+
+
+    while locateObject(2,cam11,cam12)==True and locateObject(3,cam21,cam22)==True:
         Thread(target=CubeToHome()).start()
-        Thread(target=CylinderHome()).start()
-    startConveyor()
-    if sensors(1)<55:
-        CylinderSensorCount += 1
-        stopConveyor()
-        CylinderConveyorToHome()
-    else:
-        continue
-        
+        Thread(target=CylinderToHome()).start()
+    while locateObject(2,cam11,cam12)==True:
+        CubeToHome()
+    while locateObject(3,cam21,cam22)==True:
+        CylinderToHome()
