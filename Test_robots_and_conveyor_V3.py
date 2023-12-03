@@ -36,23 +36,34 @@ CylinderHomeCount = 0
 
 
 #positions x, y, z, rx, ry, rz
-clearCamera1 = 0.25, -0.22, 0.20, 0, 3.14, 0
-clearCamera2 = 0.25, -0.22, 0.30, 0, 3.14, 0
+clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
 
-#We have to change all the coordonates
-placeObjectConveyor_r1 = -0.3, 1.05, 0.15, 0, 3.14, 0
-placeObjectConveyorDown_r1 = -0.3, 1.05, 0.005, 0, 3.14, 0
+# Robot 1 (left robot)
+placeObjectConveyor_r1 = 0.05, 0.4, 0.20, 0, 3.14, 0
+placeObjectConveyorDown_r1 = 0.05, 0.4, 0.010, 0, 3.14, 0
+pickObjectConveyor_r1 = 0.05, 0.4, 0.20, 0, 3.14, 0
+pickObjectConveyorDown_r1 = 0.05, 0.4, 0.010, 0, 3.14, 0
+
 placeObjectHome_r1 = -0.3, -0.3, 0.15, 0, 3.14, 0
 placeObjectHomeDown_r1 = -0.3, -0.3, 0.005, 0, 3.14, 0
-pickObjectConveyor_r1 = -0.3, 1.05, 0.15, 0, 3.14, 0
-pickObjectConveyorDown_r1 = -0.3, 1.05, 0.15, 0, 3.14, 0
 
+#transition Positions
+transitionHomePos_r1 = 0.0, -0.3, 0.20, 0, 3.14, 0 
+transitionConvPos_r1 = -0.25, -0.22, 0.20, 0, 3.14, 0
+
+# Robot 2 (right robot)
+#TODO Change coordinates of Conveyor R2
 placeObjectConveyor_r2 = 0.3, -0.25, 0.15, 0, 3.14, 0
 placeObjectConveyorDown_r2 = 0.3, -0.25, 0.005, 0, 3.14, 0
-placeObjectHome_r2 = 0.3, -0.25, 0.15, 0, 3.14, 0
-placeObjectHomeDown_r2 = 0.3, -0.25, 0.005, 0, 3.14, 0
 pickObjectConveyor_r2 = -0.3, 1.05, 0.15, 0, 3.14, 0
 pickObjectConveyorDown_r2 = -0.3, 1.05, 0.15, 0, 3.14, 0
+
+placeObjectHome_r2 = 0.3, -0.25, 0.15, 0, 3.14, 0
+placeObjectHomeDown_r2 = 0.3, -0.25, 0.005, 0, 3.14, 0
+
+#TODO add transition positions for robot 2
+transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0 
+transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
 gamma = 0
 omega = 0
@@ -118,7 +129,7 @@ def locateObject(object, camera1, camera2):
             print(x, y)
             result=1
         else:
-            print("Object number",object,"not detected")
+            print("Object number ",object," not detected")
             result=0
     else:
         print("No object detected")
@@ -391,9 +402,9 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera1, True)
-move(rob2, clearCamera2, True)
-setConveyorSpeed(0.012)
+move(rob, clearCamera, True)
+move(rob2, clearCamera, True)
+setConveyorSpeed(0.03)
 
 while objectCount < 12:
     while locateObject(3,cam11,cam12) == 1:
