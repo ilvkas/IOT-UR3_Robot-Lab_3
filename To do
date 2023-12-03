@@ -4,3 +4,4 @@ Notes for later (programming stuff) :
 - Verify for each fonction if it is detecting the good object. Otherwise it will take at random position :done
 - Pass everytime to the transition position to avoid wrong movements
 - Always clear camera
+- Update manualy home position, not with fonction (safety solution)
