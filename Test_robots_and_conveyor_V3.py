@@ -396,10 +396,10 @@ move(rob2, clearCamera2, True)
 setConveyorSpeed(0.012)
 
 while objectCount < 12:
-    while locateObject(3,cam11,cam12)==True:
+    while locateObject(3,cam11,cam12) == 1:
         CylinderConveyorCount += 1
         startConveyor()
-        while locateObject(3,cam21,cam22)==True:
+        while locateObject(3,cam21,cam22) == 1:
             Thread(target=CylinderToConveyor()).start()
             Thread(target=CylinderToHome()).start()
         CylinderToConveyor()
@@ -411,7 +411,7 @@ while objectCount < 12:
         else:
             continue
     while CylinderConveyorCount != CylinderSensorCount:
-        while locateObject(2,cam11,cam12):
+        while locateObject(2,cam11,cam12) == 1:
             def CylinderHome() :
                 global CylinderSensorCount
                 startConveyor()
@@ -432,10 +432,10 @@ while objectCount < 12:
             continue
             
 
-    while locateObject(2,cam21,cam22)==True:
+    while locateObject(2,cam21,cam22) == 1:
         CubeConveyorCount += 1
         reverseConveyor()
-        while locateObject(2,cam11,cam12)==True:
+        while locateObject(2,cam11,cam12) == 1:
             Thread(target=CubeToConveyor()).start()
             Thread(target=CubeToHome()).start()
         CubeToConveyor()
@@ -447,7 +447,7 @@ while objectCount < 12:
         else:
             continue
     while CubeConveyorCount != CubeSensorCount:
-        while locateObject(3,cam21,cam22):
+        while locateObject(3,cam21,cam22) == 1:
             def CubeHome() :
                 global CubeSensorCount
                 reverseConveyor()
@@ -468,10 +468,10 @@ while objectCount < 12:
             continue
 
 
-    while locateObject(2,cam11,cam12)==True and locateObject(3,cam21,cam22)==True:
+    while locateObject(2,cam11,cam12) == 1 and locateObject(3,cam21,cam22) == 1:
         Thread(target=CubeToHome()).start()
         Thread(target=CylinderToHome()).start()
-    while locateObject(2,cam11,cam12)==True:
+    while locateObject(2,cam11,cam12) == 1:
         CubeToHome()
-    while locateObject(3,cam21,cam22)==True:
+    while locateObject(3,cam21,cam22) == 1:
         CylinderToHome()
