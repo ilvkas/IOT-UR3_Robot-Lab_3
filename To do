@@ -1,0 +1,4 @@
+Notes for later (programming stuff) :
+
+- If cylinder not detected, make sure that it will not taking cube instead
+- Verify for each fonction if it is detecting the good object. Otherwise it will take at random position
