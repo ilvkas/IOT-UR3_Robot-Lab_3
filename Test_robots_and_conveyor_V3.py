@@ -171,7 +171,6 @@ def startConveyor():
     #set digital out back to 0
     rob2.set_digital_out(5, 0)
     #conveyor started
-
 def stopConveyor():
     #stop conveyor
     rob2.set_digital_out(7, 1)
@@ -180,7 +179,6 @@ def stopConveyor():
     #set digital out back to 0
     rob2.set_digital_out(7, 0)
     #conveyor stopped
-
 def reverseConveyor():
     #start coveyor in reverse direction
     rob2.set_digital_out(6, 1)
@@ -189,12 +187,12 @@ def reverseConveyor():
     #set digital out back to 0
     rob2.set_digital_out(6, 0)
     #conveyor started in reverse direction
-
 def setConveyorSpeed(voltage):
     #sets analog out to voltage instead of current
     rob2.send_program("set_analog_outputdomain(1, 1)")
     #sets analog out 1 to desired voltage. 0.012 is the slowest speed.
     rob2.set_analog_out(1, voltage)
+
 
 #Transition cylinder to conveyor (T1)
 def CylinderToConveyor():
@@ -348,6 +346,9 @@ def CubeToHome():
         rob.send_program(rq_open())
         time.sleep(0.6)
         move(rob, placeObjectHome_r1, True)
+        #update value
+        placeObjectHome_r1 = modify_object_coordinates(placeObjectHome_r1, 1, 'add', None)
+        placeObjectHomeDown_r1 = modify_object_coordinates(placeObjectHomeDown_r1, 1, 'add', None)
         time.sleep(0.2)
         objectCount += 1
         CubeHomeCount += 1
@@ -357,7 +358,7 @@ def CubeToHome():
 #Transition cylinder to home (T8)
 def CylinderToHome():
     if locateObject(3,cam21,cam22) == 1:
-        global x, y, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount, gamma, omega
+        global x, y, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
         if CylinderHomeCount == 0:
             placeObjectHome_r2 = ()
             placeObjectHomeDown_r2 = ()
@@ -388,6 +389,8 @@ def CylinderToHome():
         rob2.send_program(rq_open())
         time.sleep(0.6)
         move(rob2, placeObjectHome_r2, True)
+        placeObjectHome_r2 = modify_object_coordinates(placeObjectHome_r2, 1, 'add', None)
+        placeObjectHomeDown_r2 = modify_object_coordinates(placeObjectHomeDown_r2, 1, 'add', None)
         time.sleep(0.2)
         objectCount += 1
         CylinderHomeCount += 1
