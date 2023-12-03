@@ -2,8 +2,6 @@ import urx
 from Gripper import *
 import urllib.request
 import time
-from conveyorR2 import *
-from conveyorSensors import *
 from threading import Thread
 import sys
 import requests
@@ -79,7 +77,7 @@ def move(robot, location, moveWait):
 
 #change port[n] to change sensor. 1 is closest to the door, 4 is furthest away from the door
 def sensors(sensor):
-    r = requests.post('http://10.1.1.9', json={"code":"request","cid":1,"adr":"/getdatamulti","data":{"datatosend":["/iolinkmaster/port[",sensor,"]/iolinkdevice/pdin"]}})
+    r = requests.post('http://158.39.162.193', json={"code":"request","cid":1,"adr":"/getdatamulti","data":{"datatosend":["/iolinkmaster/port[",sensor,"]/iolinkdevice/pdin"]}})
     res = r.json()
     res1 = res['data']
     data = str(res1)
