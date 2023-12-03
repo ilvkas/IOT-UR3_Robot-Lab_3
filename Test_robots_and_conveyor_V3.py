@@ -82,13 +82,11 @@ def robConnect():
         time.sleep(3)
     time.sleep(1)
 
-
 #function for moving robot using moveJ
 def move(robot, location, moveWait):
     robot.movex("movej", location, acc=a, vel=v, wait=moveWait, relative=False, threshold=None)
     if moveWait == False:
         time.sleep(0.1)
-
 
 #change port[n] to change sensor. 1 is closest to the door, 4 is furthest away from the door
 def sensors(sensor):
@@ -102,7 +100,6 @@ def sensors(sensor):
     else:
         p = ("out of range")
     return(p)
-
 
 #Uses camera to locate objects
 def locateObject(object, camera1, camera2):
@@ -136,16 +133,9 @@ def locateObject(object, camera1, camera2):
         result=0
     return(result)
 
-def modify_object_coordinates(Object, index, operation, use_gamma=False, use_omega=False):
+def modify_object_coordinates(Object, index, gamma_op=None, omega_op=None):
     gamma = 0.071  
     omega = 0.08  # TODO: Change value for omega
-
-    # Change value according to which value is used
-    value = 0
-    if use_gamma:
-        value += gamma
-    if use_omega:
-        value += omega
 
     # Ensure the index is within the range of the object
     if index < 0 or index >= len(Object):
@@ -154,19 +144,22 @@ def modify_object_coordinates(Object, index, operation, use_gamma=False, use_ome
     # Convert Object to a list
     Object = list(Object)
 
-    # Apply the operation
-    if operation == 'add':
-        Object[index] += value
-    elif operation == 'sub':
-        Object[index] -= value
-    else:
-        raise ValueError("Invalid operation. Use 'add' or 'sub'.")
+    # Apply gamma operation if specified (add for addition, sub for subtraction)
+    if gamma_op == 'add':
+        Object[index] += gamma
+    elif gamma_op == 'sub':
+        Object[index] -= gamma
+
+    # Apply omega operation if specified (add for addition, sub for subtraction)
+    if omega_op == 'add':
+        Object[index] += omega
+    elif omega_op == 'sub':
+        Object[index] -= omega
 
     # Convert back to a tuple
     Object = tuple(Object)
 
     return Object
-
 
 
 #Transitions for Conveyor (T2 and T5)
