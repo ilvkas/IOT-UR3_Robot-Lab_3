@@ -306,7 +306,7 @@ time.sleep(0.1)
 rob.set_tcp((0,0,0.16,0,0,0))
 
 move(rob, clearCamera, True)
-
+setConveyorSpeed(0.012)
 
 while objectCount < 12:
     while locateObject(3,cam11,cam12)==True:
