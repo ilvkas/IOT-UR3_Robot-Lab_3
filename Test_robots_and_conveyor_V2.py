@@ -108,10 +108,8 @@ def locateObject(object, camera1, camera2):
         x = x1[3]
         y = float(y)
         x = float(x)
-        x = x*0.93
-        y = y*0.93
-        x = (x - 78) /1000
-        y = (y - 370) /1000
+        x = (x - 0) /1000
+        y = (y - 0) /1000
         time.sleep(3)
         print(x, y)
 
