@@ -47,8 +47,8 @@ pickObjectConveyorDown_r1 = -0.3, 1.05, 0.15, 0, 3.14, 0
 
 placeObjectConveyor_r2 = 0.3, -0.25, 0.15, 0, 3.14, 0
 placeObjectConveyorDown_r2 = 0.3, -0.25, 0.005, 0, 3.14, 0
-placeObjectHome_r2 = 0.25, -0.25, 0.25, 0, 3.14, 0
-placeObjectHomeDown_r2 = 0.25, -0.25, 0.015, 0, 3.14, 0
+placeObjectHome_r2 = 0.25, -0.25, 0.20, 0, 3.14, 0
+placeObjectHomeDown_r2 = 0.25, -0.25, 0.010, 0, 3.14, 0
 pickObjectConveyor_r2 = -0.3, 1.05, 0.15, 0, 3.14, 0
 pickObjectConveyorDown_r2 = -0.3, 1.05, 0.15, 0, 3.14, 0
 
@@ -153,8 +153,13 @@ def CylinderToHome():
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
     gamma += 0.075
-    placeObjectHome_r2 = 0.25, -0.25-gamma, 0.15, 0, 3.14, 0
-    placeObjectHomeDown_r2 = 0.25, -0.25-gamma, 0.005, 0, 3.14, 0
+    #update value
+    placeObjectHome_r2 = list(placeObjectHome_r2)
+    placeObjectHome_r2[1] -= gamma
+    placeObjectHome_r2 = tuple(placeObjectHome_r2)
+    placeObjectHomeDown_r2 = list(placeObjectHomeDown_r2)
+    placeObjectHomeDown_r2[1] -= gamma
+    placeObjectHomeDown_r2 = tuple(placeObjectHomeDown_r2)
     time.sleep(0.2)
     objectCount += 1
 
@@ -187,5 +192,5 @@ rob2.set_tcp((0,0,0.16,0,0,0))
 move(rob, clearCamera, True)
 move(rob2, clearCamera_2, True)
 
-CubeToHome()
+#CubeToHome()
 CylinderToHome()
