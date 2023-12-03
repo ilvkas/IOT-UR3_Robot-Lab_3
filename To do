@@ -1,8 +1,8 @@
 Notes for later (programming stuff) :
 
 - If cylinder not detected, make sure that it will not taking cube instead : done
-- Verify for each fonction if it is detecting the good object. Otherwise it will take at random position :done
-- Pass everytime to the transition position to avoid wrong movements
-- Always clear camera
+- Verify for each fonction if it is detecting the good object. Otherwise it will take at random position : done
+- Pass everytime to the transition position to avoid wrong movements : done
+- Always clear camera : done
 - Update manualy home position, not with fonction (safety solution)
 - hardcode gamma or omega into modification code
