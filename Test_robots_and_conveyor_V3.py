@@ -136,6 +136,38 @@ def locateObject(object, camera1, camera2):
         result=0
     return(result)
 
+def modify_object_coordinates(Object, index, operation, use_gamma=False, use_omega=False):
+    gamma = 0.071  
+    omega = 0.08  # TODO: Change value for omega
+
+    # Change value according to which value is used
+    value = 0
+    if use_gamma:
+        value += gamma
+    if use_omega:
+        value += omega
+
+    # Ensure the index is within the range of the object
+    if index < 0 or index >= len(Object):
+        raise ValueError("Index out of range")
+
+    # Convert Object to a list
+    Object = list(Object)
+
+    # Apply the operation
+    if operation == 'add':
+        Object[index] += value
+    elif operation == 'sub':
+        Object[index] -= value
+    else:
+        raise ValueError("Invalid operation. Use 'add' or 'sub'.")
+
+    # Convert back to a tuple
+    Object = tuple(Object)
+
+    return Object
+
+
 
 #Transitions for Conveyor (T2 and T5)
 def startConveyor():
@@ -171,7 +203,6 @@ def setConveyorSpeed(voltage):
     #sets analog out 1 to desired voltage. 0.012 is the slowest speed.
     rob2.set_analog_out(1, voltage)
 
-
 #Transition cylinder to conveyor (T1)
 def CylinderToConveyor():
     if locateObject(3,cam11,cam12) == 1:
@@ -196,7 +227,6 @@ def CylinderToConveyor():
         time.sleep(0.2)
     else:
         print("No cylinder to put on conveyor")
-
 
 #Transition cylinder on conveyor to home (T3)
 def CylinderConveyorToHome():
@@ -232,7 +262,6 @@ def CylinderConveyorToHome():
     objectCount += 1
     CylinderHomeCount += 1
 
-
 #Transition cube to conveyor (T4)
 def CubeToConveyor():
     if locateObject(2,cam21,cam22) == 1:
@@ -257,7 +286,6 @@ def CubeToConveyor():
         time.sleep(0.2)
     else:
         print("No cube to put on conveyor")
-
 
 #Transition cube on conveyor to home (T6)
 def CubeConveyorToHome():
@@ -292,7 +320,6 @@ def CubeConveyorToHome():
     time.sleep(0.2)
     objectCount += 1
     CubeHomeCount += 1
-
 
 #Transition cube to home (T7)
 def CubeToHome():
@@ -334,7 +361,6 @@ def CubeToHome():
     else:
         print("No cube to place at home")
 
-
 #Transition cylinder to home (T8)
 def CylinderToHome():
     if locateObject(3,cam21,cam22) == 1:
@@ -374,7 +400,6 @@ def CylinderToHome():
         CylinderHomeCount += 1
     else:
         print("No cylinder to place at home")
-
 
 
 robConnect()
