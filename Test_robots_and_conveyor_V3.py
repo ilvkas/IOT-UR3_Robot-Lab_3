@@ -403,7 +403,7 @@ while objectCount < 12:
             Thread(target=CylinderToConveyor()).start()
             Thread(target=CylinderToHome()).start()
         CylinderToConveyor()
-        if sensors(1)<55:
+        if sensors(1) < 40:
             CylinderSensorCount += 1
             stopConveyor()
             CylinderConveyorToHome()
@@ -415,7 +415,7 @@ while objectCount < 12:
             def CylinderHome() :
                 global CylinderSensorCount
                 startConveyor()
-                if sensors(1)<55:
+                if sensors(1) < 40:
                     CylinderSensorCount += 1
                     stopConveyor()
                     CylinderConveyorToHome()
@@ -424,7 +424,7 @@ while objectCount < 12:
             Thread(target=CubeToHome()).start()
             Thread(target=CylinderHome()).start()
         startConveyor()
-        if sensors(1)<55:
+        if sensors(1) < 40:
             CylinderSensorCount += 1
             stopConveyor()
             CylinderConveyorToHome()
@@ -439,7 +439,7 @@ while objectCount < 12:
             Thread(target=CubeToConveyor()).start()
             Thread(target=CubeToHome()).start()
         CubeToConveyor()
-        if sensors(4)<55:
+        if sensors(4) < 40:
             CubeSensorCount += 1
             stopConveyor()
             CubeConveyorToHome()
@@ -451,7 +451,7 @@ while objectCount < 12:
             def CubeHome() :
                 global CubeSensorCount
                 reverseConveyor()
-                if sensors(1)<55:
+                if sensors(4) < 40:
                     CubeSensorCount += 1
                     stopConveyor()
                     CubeConveyorToHome()
@@ -460,7 +460,7 @@ while objectCount < 12:
             Thread(target=CylinderToHome()).start()
             Thread(target=CubeHome()).start()
         reverseConveyor()
-        if sensors(4)<55:
+        if sensors(4) < 40:
             CubeSensorCount += 1
             stopConveyor()
             CubeConveyorToHome()
