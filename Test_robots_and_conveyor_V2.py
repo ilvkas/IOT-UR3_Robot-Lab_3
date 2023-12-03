@@ -93,7 +93,7 @@ def sensors(sensor):
 
 #Uses camera to locate objects
 def locateObject(object, camera1, camera2):
-    global x, y, objectLocated, switchCounter
+    global x, y, objectLocated
     page = urllib.request.urlopen(camera1)
     time.sleep(2)
     page = urllib.request.urlopen(camera2)
@@ -101,17 +101,19 @@ def locateObject(object, camera1, camera2):
     coords = page.read().decode('utf-8')
     #splits output
     x1 = coords.split(",")
-    objectLocated = int(x1[object])
+    objectLocated = int(x1[2])
     if objectLocated == 1:
-        switchCounter = 0
-        y = x1[4]
-        x = x1[3]
-        y = float(y)
-        x = float(x)
-        x = (x - 0) /1000
-        y = (y - 0) /1000
-        time.sleep(3)
-        print(x, y)
+        if x1[1]==object:
+            y = x1[4]
+            x = x1[3]
+            y = float(y)
+            x = float(x)
+            x = (x - 0) /1000
+            y = (y - 0) /1000
+            time.sleep(3)
+            print(x, y)
+        else:
+            print("Object number",object,"not detected")
 
 
 #Transitions for Conveyor (T2 and T5)
