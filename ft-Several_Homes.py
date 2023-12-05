@@ -143,25 +143,11 @@ def move(robot, location, moveWait):
         time.sleep(0.1)
 
 
-#change port[n] to change sensor. 1 is closest to the door, 4 is furthest away from the door
-def sensors(sensor):
-    r = requests.post('http://158.39.162.193', json={"code":"request","cid":1,"adr":"/getdatamulti","data":{"datatosend":["/iolinkmaster/port[",sensor,"]/iolinkdevice/pdin"]}})
-    res = r.json()
-    res1 = res['data']
-    data = str(res1)
-    if data[53] == "2":
-        d = data[68]+data[69]
-        p = int(d,16)
-    else:
-        p = ("out of range")
-    return(p)
-
-
 #Uses camera to locate objects
-def locateObject(object, camera1, camera2):
-    global x, y, objectLocated, result
-    x = 0
-    y = 0
+def locateObject_r1(object, camera1, camera2):
+    global x_r1, y_r1, result
+    x_r1 = 0
+    y_r1 = 0
     page = urllib.request.urlopen(camera1)
     time.sleep(2)
     page = urllib.request.urlopen(camera2)
@@ -172,23 +158,53 @@ def locateObject(object, camera1, camera2):
     objectLocated = int(x1[2])
     if objectLocated == 1:
         if int(x1[1])==object:
-            y = x1[4]
-            x = x1[3]
-            y = float(y)
-            x = float(x)
-            x = (x - 0) /1000
-            y = (y - 0) /1000
+            y_r1 = x1[4]
+            x_r1 = x1[3]
+            y_r1 = float(y_r1)
+            x_r1 = float(x_r1)
+            x_r1 = x_r1  /1000
+            y_r1 = y_r1  /1000
             time.sleep(3)
-            print(x, y)
+            print(x_r1, y_r1)
             result=1
         else:
-            print("Object number " + object + " not detected")
+            print("Object number",object,"not detected")
             result=0
     else:
         print("No object detected")
         result=0
     return(result)
 
+def locateObject_r2(object, camera1, camera2):
+    global x_r2, y_r2, result
+    x_r2 = 0
+    y_r2 = 0
+    page = urllib.request.urlopen(camera1)
+    time.sleep(2)
+    page = urllib.request.urlopen(camera2)
+    #reads output from camera
+    coords = page.read().decode('utf-8')
+    #splits output
+    x1 = coords.split(",")
+    objectLocated = int(x1[2])
+    if objectLocated == 1:
+        if int(x1[1])==object:
+            y_r2 = x1[4]
+            x_r2 = x1[3]
+            y_r2 = float(y_r2)
+            x_r2 = float(x_r2)
+            x_r2 = (x_r2 - 0) /1000
+            y_r2 = (y_r2 - 0) /1000
+            time.sleep(3)
+            print(x_r2, y_r2)
+            result=1
+        else:
+            print("Object number",object,"not detected")
+            result=0
+    else:
+        print("No object detected")
+        result=0
+    return(result)
 
 #Transitions for Conveyor (T2 and T5)
 def startConveyor():
@@ -227,8 +243,8 @@ def setConveyorSpeed(voltage):
 
 #Transition cylinder to conveyor (T1)
 def CylinderToConveyor():
-    if locateObject(3,cam11,cam12) == 1:
-        global x, y, placeObjectConveyor_r1, placeObjectConveyorDown_r1, CylinderConveyorCount, CylinderConveyorPlaced
+    if locateObject_r1(3,cam11,cam12) == 1:
+        global x_r1, y_r1, placeObjectConveyor_r1, placeObjectConveyorDown_r1, CylinderConveyorCount, CylinderConveyorPlaced
 
         if CylinderConveyorCount == 1:
             placeObjectConveyor_r1 = ConveyorPosition1_r1
@@ -249,8 +265,8 @@ def CylinderToConveyor():
             placeObjectConveyor_r1 = ConveyorPosition6_r1
             placeObjectConveyorDown_r1 = ConveyorPositionDown6_r1
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -343,8 +359,8 @@ def CylinderConveyorToHome():
 
 #Transition cube to conveyor (T4)
 def CubeToConveyor():
-    if locateObject(2,cam21,cam22) == 1:
-        global x, y, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
+    if locateObject_r2(2,cam21,cam22) == 1:
+        global x_r2, y_r2, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
 
         if CubeConveyorCount == 1:
             placeObjectConveyor_r2 = ConveyorPosition1_r2
@@ -365,8 +381,8 @@ def CubeToConveyor():
             placeObjectConveyor_r2 = ConveyorPosition6_r2
             placeObjectConveyorDown_r2 = ConveyorPositionDown6_r2
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r2, y_r2, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
         time.sleep(0.1)
@@ -458,8 +474,8 @@ def CubeConveyorToHome():
 
 #Transition cube to home (T7)
 def CubeToHome():
-    if locateObject(2,cam11,cam12) == 1:
-        global x, y, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount
+    if locateObject_r1(2,cam11,cam12) == 1:
+        global x_r1, y_r1, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount
 
         if CubeHomeCount%6 == 0:
             CubeHomeCount = 0
@@ -483,8 +499,8 @@ def CubeToHome():
             placeObjectHome_r1 = HomePosition6_r1
             placeObjectHomeDown_r1 = HomePositionDown6_r1
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -511,8 +527,8 @@ def CubeToHome():
 
 #Transition cylinder to home (T8)
 def CylinderToHome():
-    if locateObject(3,cam21,cam22) == 1:
-        global x, y, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
+    if locateObject_r2(3,cam21,cam22) == 1:
+        global x_r2, y_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
 
         if CylinderHomeCount%6 == 0:
             CylinderHomeCount = 0
@@ -536,8 +552,8 @@ def CylinderToHome():
             placeObjectHome_r2 = HomePosition6_r2
             placeObjectHomeDown_r2 = HomePositionDown6_r2
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r2, y_r2, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
         time.sleep(0.1)
@@ -593,13 +609,13 @@ move(rob2, clearCamera, False)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
-    if locateObject(2,cam11,cam12) == 1 or locateObject(3,cam21,cam22) == 1:
-        while locateObject(2,cam11,cam12) == 1 and locateObject(3,cam21,cam22) == 1:
+    if locateObject_r1(2,cam11,cam12) == 1 or locateObject_r2(3,cam21,cam22) == 1:
+        while locateObject_r1(2,cam11,cam12) == 1 and locateObject_r2(3,cam21,cam22) == 1:
             Thread(target=CubeToHome).start()
             Thread(target=CylinderToHome).start()
-        while locateObject(2,cam11,cam12) == 1:
+        while locateObject_r1(2,cam11,cam12) == 1:
             CubeToHome()
-        while locateObject(3,cam21,cam22) == 1:
+        while locateObject_r2(3,cam21,cam22) == 1:
             CylinderToHome()
     else:
         break
