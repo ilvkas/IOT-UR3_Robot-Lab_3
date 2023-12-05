@@ -38,9 +38,9 @@ time.sleep(0.1)
 rob.send_program(rq_set_force(10))
 time.sleep(0.1) '''
 #sets robot tcp, the distance from robot flange to gripper tips. 
-rob.set_tcp((0,0,0.16,0,0,0))
+rob2.set_tcp((0,0,0.16,0,0,0))
 
-trans = rob.get_pose()  # get current transformation matrix (tool to base)
+trans = rob2.get_pose()  # get current transformation matrix (tool to base)
 with open("output.txt", "a") as f:
   print(trans, file=f)
 print("done")
