@@ -4,7 +4,6 @@ import urllib.request
 import time
 from threading import Thread
 import sys
-import requests
 
 #set robot ip adress
 #this is the left robot
@@ -41,8 +40,7 @@ CubeConveyorPlaced = 0
 
 
 #positions x, y, z, rx, ry, rz
-clearCamera1 = 0.25, -0.22, 0.20, 0, 3.14, 0
-clearCamera2 = 0.25, -0.22, 0.30, 0, 3.14, 0
+clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
 
 #We have to change all the coordonates
 placeObjectHome_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
@@ -57,31 +55,31 @@ pickObjectConveyorDown_r1 = 0.05, 0.4, 0.010, 0, 3.14, 0
 transitionHomePos_r1 = 0.0, -0.3, 0.20, 0, 3.14, 0 
 transitionConvPos_r1 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
-HomePosition1_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
-HomePositionDown1_r1 = 0.3, -0.15, 0.005, 0, 3.14, 0
-HomePosition2_r1 = 0.23, -0.15, 0.15, 0, 3.14, 0
-HomePositionDown2_r1 = 0.23, -0.15, 0.005, 0, 3.14, 0
-HomePosition3_r1 = 0.3, -0.22, 0.15, 0, 3.14, 0
-HomePositionDown3_r1 = 0.3, -0.22, 0.005, 0, 3.14, 0
-HomePosition4_r1 = 0.23, -0.22, 0.15, 0, 3.14, 0
-HomePositionDown4_r1 = 0.23, -0.22, 0.005, 0, 3.14, 0
-HomePosition5_r1 = 0.3, -0.29, 0.15, 0, 3.14, 0
-HomePositionDown5_r1 = 0.3, -0.29, 0.005, 0, 3.14, 0
-HomePosition6_r1 = 0.23, -0.29, 0.15, 0, 3.14, 0
-HomePositionDown6_r1 = 0.23, -0.29, 0.005, 0, 3.14, 0
+HomePosition1_r1 = 0.35, -0.13, 0.15, 0, 3.14, 0
+HomePositionDown1_r1 = 0.35, -0.13, 0.005, 0, 3.14, 0
+HomePosition2_r1 = 0.25, -0.13, 0.15, 0, 3.14, 0
+HomePositionDown2_r1 = 0.25, -0.13, 0.005, 0, 3.14, 0
+HomePosition3_r1 = 0.35, -0.23, 0.15, 0, 3.14, 0
+HomePositionDown3_r1 = 0.35, -0.23, 0.005, 0, 3.14, 0
+HomePosition4_r1 = 0.25, -0.23, 0.15, 0, 3.14, 0
+HomePositionDown4_r1 = 0.25, -0.23, 0.005, 0, 3.14, 0
+HomePosition5_r1 = 0.35, -0.33, 0.15, 0, 3.14, 0
+HomePositionDown5_r1 = 0.35, -0.33, 0.005, 0, 3.14, 0
+HomePosition6_r1 = 0.25, -0.33, 0.15, 0, 3.14, 0
+HomePositionDown6_r1 = 0.25, -0.33, 0.005, 0, 3.14, 0
 
 ConveyorPosition1_r1 = 0.091, 0.334, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r1 = 0.091, 0.334, -0.008, 0, 3.14, 0
 ConveyorPosition2_r1 = -0.009, 0.334, 0.15, 0, 3.14, 0
 ConveyorPositionDown2_r1 = -0.009, 0.334, -0.008, 0, 3.14, 0
-ConveyorPosition3_r1 = 0.091, 0.404, 0.15, 0, 3.14, 0
-ConveyorPositionDown3_r1 = 0.091, 0.404, -0.008, 0, 3.14, 0
-ConveyorPosition4_r1 = -0.009, 0.404, 0.15, 0, 3.14, 0
-ConveyorPositionDown4_r1 = -0.009, 0.404, -0.008, 0, 3.14, 0
-ConveyorPosition5_r1 = 0.091, 0.474, 0.15, 0, 3.14, 0
-ConveyorPositionDown5_r1 = 0.091, 0.474, -0.008, 0, 3.14, 0
-ConveyorPosition6_r1 = -0.009, 0.474, 0.15, 0, 3.14, 0
-ConveyorPositionDown6_r1 = -0.009, 0.474, -0.008, 0, 3.14, 0
+ConveyorPosition3_r1 = 0.091, 0.434, 0.15, 0, 3.14, 0
+ConveyorPositionDown3_r1 = 0.091, 0.434, -0.008, 0, 3.14, 0
+ConveyorPosition4_r1 = -0.009, 0.434, 0.15, 0, 3.14, 0
+ConveyorPositionDown4_r1 = -0.009, 0.434, -0.008, 0, 3.14, 0
+ConveyorPosition5_r1 = 0.091, 0.534, 0.15, 0, 3.14, 0
+ConveyorPositionDown5_r1 = 0.091, 0.534, -0.008, 0, 3.14, 0
+ConveyorPosition6_r1 = -0.009, 0.534, 0.15, 0, 3.14, 0
+ConveyorPositionDown6_r1 = -0.009, 0.534, -0.008, 0, 3.14, 0
 
 
 placeObjectHome_r2 = 0.25, -0.15, 0.20, 0, 3.14, 0
@@ -96,31 +94,31 @@ pickObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0 
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
-HomePosition1_r2 = 0.25, -0.15, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = 0.25, -0.15, 0.010, 0, 3.14, 0
-HomePosition2_r2 = 0.18, -0.15, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = 0.18, -0.15, 0.010, 0, 3.14, 0
-HomePosition3_r2 = 0.25, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = 0.25, -0.22, 0.010, 0, 3.14, 0
-HomePosition4_r2 = 0.18, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown4_r2 = 0.18, -0.22, 0.010, 0, 3.14, 0
-HomePosition5_r2 = 0.25, -0.29, 0.20, 0, 3.14, 0
-HomePositionDown5_r2 = 0.25, -0.29, 0.010, 0, 3.14, 0
-HomePosition6_r2 = 0.18, -0.29, 0.20, 0, 3.14, 0
-HomePositionDown6_r2 = 0.18, -0.29, 0.010, 0, 3.14, 0
+HomePosition1_r2 = -0.36, -0.12, 0.20, 0, 3.14, 0
+HomePositionDown1_r2 = -0.36, -0.12, 0.025, 0, 3.14, 0
+HomePosition2_r2 = -0.25, -0.12, 0.20, 0, 3.14, 0
+HomePositionDown2_r2 = -0.25, -0.12, 0.025, 0, 3.14, 0
+HomePosition3_r2 = -0.36, -0.22, 0.20, 0, 3.14, 0
+HomePositionDown3_r2 = -0.36, -0.22, 0.025, 0, 3.14, 0
+HomePosition4_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
+HomePositionDown4_r2 = -0.25, -0.22, 0.025, 0, 3.14, 0
+HomePosition5_r2 = -0.36, -0.32, 0.20, 0, 3.14, 0
+HomePositionDown5_r2 = -0.36, -0.32, 0.025, 0, 3.14, 0
+HomePosition6_r2 = -0.25, -0.32, 0.20, 0, 3.14, 0
+HomePositionDown6_r2 = -0.25, -0.32, 0.025, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.021, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r2 = 0.021, 0.246, -0.008, 0, 3.14, 0
 ConveyorPosition2_r2 = -0.079, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown2_r2 = -0.079, 0.246, -0.008, 0, 3.14, 0
-ConveyorPosition3_r2 = 0.021, 0.316, 0.15, 0, 3.14, 0
-ConveyorPositionDown3_r2 = 0.021, 0.316, -0.008, 0, 3.14, 0
-ConveyorPosition4_r2 = -0.079, 0.316, 0.15, 0, 3.14, 0
-ConveyorPositionDown4_r2 = -0.079, 0.316, -0.008, 0, 3.14, 0
-ConveyorPosition5_r2 = 0.021, 0.386, 0.15, 0, 3.14, 0
-ConveyorPositionDown5_r2 = 0.021, 0.386, -0.008, 0, 3.14, 0
-ConveyorPosition6_r2 = -0.079, 0.386, 0.15, 0, 3.14, 0
-ConveyorPositionDown6_r2 = -0.079, 0.386, -0.008, 0, 3.14, 0
+ConveyorPosition3_r2 = 0.021, 0.346, 0.15, 0, 3.14, 0
+ConveyorPositionDown3_r2 = 0.021, 0.346, -0.008, 0, 3.14, 0
+ConveyorPosition4_r2 = -0.079, 0.346, 0.15, 0, 3.14, 0
+ConveyorPositionDown4_r2 = -0.079, 0.346, -0.008, 0, 3.14, 0
+ConveyorPosition5_r2 = 0.021, 0.446, 0.15, 0, 3.14, 0
+ConveyorPositionDown5_r2 = 0.021, 0.446, -0.008, 0, 3.14, 0
+ConveyorPosition6_r2 = -0.079, 0.446, 0.15, 0, 3.14, 0
+ConveyorPositionDown6_r2 = -0.079, 0.446, -0.008, 0, 3.14, 0
 
 #connects to robot
 def robConnect():
@@ -144,27 +142,13 @@ def move(robot, location, moveWait):
         time.sleep(0.1)
 
 
-#change port[n] to change sensor. 1 is closest to the door, 4 is furthest away from the door
-def sensors(sensor):
-    r = requests.post('http://158.39.162.193', json={"code":"request","cid":1,"adr":"/getdatamulti","data":{"datatosend":["/iolinkmaster/port[",sensor,"]/iolinkdevice/pdin"]}})
-    res = r.json()
-    res1 = res['data']
-    data = str(res1)
-    if data[53] == "2":
-        d = data[68]+data[69]
-        p = int(d,16)
-    else:
-        p = ("out of range")
-    return(p)
-
-
 #Uses camera to locate objects
-def locateObject(object, camera1, camera2):
-    global x, y, objectLocated, result
-    x = 0
-    y = 0
+def locateObject_r1(object, camera1, camera2):
+    global x_r1, y_r1, result
+    x_r1 = 0
+    y_r1 = 0
     page = urllib.request.urlopen(camera1)
-    time.sleep(2)
+    time.sleep(1)
     page = urllib.request.urlopen(camera2)
     #reads output from camera
     coords = page.read().decode('utf-8')
@@ -173,20 +157,51 @@ def locateObject(object, camera1, camera2):
     objectLocated = int(x1[2])
     if objectLocated == 1:
         if int(x1[1])==object:
-            y = x1[4]
-            x = x1[3]
-            y = float(y)
-            x = float(x)
-            x = (x - 0) /1000
-            y = (y - 0) /1000
-            time.sleep(3)
-            print(x, y)
+            y_r1 = x1[4]
+            x_r1 = x1[3]
+            y_r1 = float(y_r1)
+            x_r1 = float(x_r1)
+            x_r1 = x_r1  /1000
+            y_r1 = y_r1  /1000
+            time.sleep(1)
+            print("R1: " + str(x_r1), str(y_r1))
             result=1
         else:
-            print("Object number",object,"not detected")
+            print("R1 No object " +object+ " detected")
             result=0
     else:
-        print("No object detected")
+        print("R1 no object detected")
+        result=0
+    return(result)
+
+def locateObject_r2(object, camera1, camera2):
+    global x_r2, y_r2, result
+    x_r2 = 0
+    y_r2 = 0
+    page = urllib.request.urlopen(camera1)
+    time.sleep(1)
+    page = urllib.request.urlopen(camera2)
+    #reads output from camera
+    coords = page.read().decode('utf-8')
+    #splits output
+    x1 = coords.split(",")
+    objectLocated = int(x1[2])
+    if objectLocated == 1:
+        if int(x1[1])==object:
+            y_r2 = x1[4]
+            x_r2 = x1[3]
+            y_r2 = float(y_r2)
+            x_r2 = float(x_r2)
+            x_r2 = x_r2  /1000
+            y_r2 = y_r2 /1000
+            time.sleep(1)
+            print("R2: " + str(x_r2), str(y_r2))
+            result=1
+        else:
+            print("R2 No object " +object+ " detected")
+            result=0
+    else:
+        print("R2 no object detected")
         result=0
     return(result)
 
@@ -228,8 +243,8 @@ def setConveyorSpeed(voltage):
 
 #Transition cylinder to conveyor (T1)
 def CylinderToConveyor():
-    if locateObject(3,cam11,cam12) == 1:
-        global x, y, placeObjectConveyor_r1, placeObjectConveyorDown_r1, CylinderConveyorCount, CylinderConveyorPlaced
+    if locateObject_r1(3,cam11,cam12) == 1:
+        global x_r1, y_r1, placeObjectConveyor_r1, placeObjectConveyorDown_r1, CylinderConveyorCount, CylinderConveyorPlaced
 
         if CylinderConveyorCount == 1:
             placeObjectConveyor_r1 = ConveyorPosition1_r1
@@ -250,8 +265,8 @@ def CylinderToConveyor():
             placeObjectConveyor_r1 = ConveyorPosition6_r1
             placeObjectConveyorDown_r1 = ConveyorPositionDown6_r1
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -344,8 +359,8 @@ def CylinderConveyorToHome():
 
 #Transition cube to conveyor (T4)
 def CubeToConveyor():
-    if locateObject(2,cam21,cam22) == 1:
-        global x, y, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
+    if locateObject_r2(2,cam21,cam22) == 1:
+        global x_r2, y_r2, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
 
         if CubeConveyorCount == 1:
             placeObjectConveyor_r2 = ConveyorPosition1_r2
@@ -366,8 +381,8 @@ def CubeToConveyor():
             placeObjectConveyor_r2 = ConveyorPosition6_r2
             placeObjectConveyorDown_r2 = ConveyorPositionDown6_r2
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r2, y_r2, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
         time.sleep(0.1)
@@ -459,8 +474,8 @@ def CubeConveyorToHome():
 
 #Transition cube to home (T7)
 def CubeToHome():
-    if locateObject(2,cam11,cam12) == 1:
-        global x, y, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount
+    if locateObject_r1(2,cam11,cam12) == 1:
+        global x_r1, y_r1, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount
 
         if CubeHomeCount%6 == 0:
             CubeHomeCount = 0
@@ -484,8 +499,8 @@ def CubeToHome():
             placeObjectHome_r1 = HomePosition6_r1
             placeObjectHomeDown_r1 = HomePositionDown6_r1
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -512,8 +527,8 @@ def CubeToHome():
 
 #Transition cylinder to home (T8)
 def CylinderToHome():
-    if locateObject(3,cam21,cam22) == 1:
-        global x, y, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
+    if locateObject_r2(3,cam21,cam22) == 1:
+        global x_r2, y_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
 
         if CylinderHomeCount%6 == 0:
             CylinderHomeCount = 0
@@ -537,8 +552,8 @@ def CylinderToHome():
             placeObjectHome_r2 = HomePosition6_r2
             placeObjectHomeDown_r2 = HomePositionDown6_r2
 
-        overPickPos = x, y, 0.1, 0.0, 3.14, 0.0
-        pickPos = x, y, 0.005, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        pickPos = x_r2, y_r2, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
         time.sleep(0.1)
@@ -572,7 +587,7 @@ time.sleep(2.5)
 rob.send_program(rq_set_speed(250))
 time.sleep(0.1)
 #sets force of gripper to a low value
-rob.send_program(rq_set_force(10))
+rob.send_program(rq_set_force(20))
 time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob.set_tcp((0,0,0.16,0,0,0))
@@ -584,22 +599,26 @@ time.sleep(2.5)
 rob2.send_program(rq_set_speed(250))
 time.sleep(0.1)
 #sets force of gripper to a low value
-rob2.send_program(rq_set_force(10))
+rob2.send_program(rq_set_force(20))
 time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera1, True)
-move(rob2, clearCamera2, True)
+move(rob, clearCamera, False)
+move(rob2, clearCamera, False)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
-    if locateObject(3,cam11,cam12) == 1:
-        while locateObject(3,cam11,cam12) == 1:
-            while locateObject(3,cam21,cam22) == 1:
+    if locateObject_r1(3,cam11,cam12) == 1:
+        while locateObject_r1(3,cam11,cam12) == 1:
+            if locateObject_r2(3,cam21,cam22) == 1:
                 CylinderConveyorCount += 1
-                Thread(target=CylinderToConveyor()).start()
-                Thread(target=CylinderToHome()).start()
+                Thread_1 = Thread(target=CylinderToConveyor)
+                Thread_2 = Thread(target=CylinderToHome)
+                Thread_1.start()
+                Thread_2.start()
+                Thread_1.join()
+                Thread_2.join()
             CylinderConveyorCount += 1
             CylinderToConveyor()
         CylinderConveyorCount = 0
@@ -607,22 +626,30 @@ while objectCount < 12:
         time.sleep(7.5)
         stopConveyor()
         while CylinderConveyorCount < CylinderConveyorPlaced:
-            while locateObject(2,cam11,cam12) == 1:
+            if locateObject_r1(2,cam11,cam12) == 1:
                 CylinderConveyorCount += 1
-                Thread(target=CylinderConveyorToHome()).start()
-                Thread(target=CubeToHome()).start()
+                Thread_1 = Thread(target=CylinderConveyorToHome)
+                Thread_2 = Thread(target=CubeToHome)
+                Thread_1.start()
+                Thread_2.start()
+                Thread_1.join()
+                Thread_2.join()
             CylinderConveyorCount += 1
             CylinderConveyorToHome()
         CylinderConveyorCount = 0
         CylinderConveyorPlaced = 0
     
 
-    elif locateObject(2,cam21,cam22) == 1:
-        while locateObject(2,cam21,cam22) == 1:
-            while locateObject(2,cam11,cam12) == 1:
+    elif locateObject_r2(2,cam21,cam22) == 1:
+        while locateObject_r2(2,cam21,cam22) == 1:
+            if locateObject_r1(2,cam11,cam12) == 1:
                 CubeConveyorCount += 1
-                Thread(target=CubeToConveyor()).start()
-                Thread(target=CubeToHome()).start()
+                Thread_1 = Thread(target=CubeToConveyor)
+                Thread_2 = Thread(target=CubeToHome)
+                Thread_1.start()
+                Thread_2.start()
+                Thread_1.join()
+                Thread_2.join()
             CubeConveyorCount += 1
             CubeToConveyor()
         CubeConveyorCount = 0
@@ -630,21 +657,33 @@ while objectCount < 12:
         time.sleep(7.5)
         stopConveyor()
         while CubeConveyorCount < CubeConveyorPlaced:
-            while locateObject(2,cam11,cam12) == 1:
+            while locateObject_r1(2,cam11,cam12) == 1:
                 CubeConveyorCount += 1
-                Thread(target=CubeConveyorToHome()).start()
-                Thread(target=CylinderToHome()).start()
+                Thread_1 = Thread(target=CubeConveyorToHome)
+                Thread_2 = Thread(target=CylinderToHome)
+                Thread_1.start()
+                Thread_2.start()
+                Thread_1.join()
+                Thread_2.join()
             CubeConveyorCount += 1
             CubeConveyorToHome()
         CubeConveyorCount = 0
         CubeConveyorPlaced = 0
 
     
-    elif locateObject(2,cam11,cam12) == 1 or locateObject(3,cam21,cam22) == 1:
-        while locateObject(2,cam11,cam12) == 1 and locateObject(3,cam21,cam22) == 1:
-            Thread(target=CubeToHome()).start()
-            Thread(target=CylinderToHome()).start()
-        while locateObject(2,cam11,cam12) == 1:
+    elif locateObject_r1(2,cam11,cam12) == 1 or locateObject_r2(3,cam21,cam22) == 1:
+        if locateObject_r1(2,cam11,cam12) == 1 and locateObject_r2(3,cam21,cam22) == 1:
+            Thread_1 = Thread(target=CubeToHome)
+            Thread_2 = Thread(target=CylinderToHome)
+            Thread_1.start()
+            Thread_2.start()
+            Thread_1.join()
+            Thread_2.join()
+        elif locateObject_r1(2,cam11,cam12) == 1:
             CubeToHome()
-        while locateObject(3,cam21,cam22) == 1:
+        elif locateObject_r2(3,cam21,cam22) == 1:
             CylinderToHome()
+        else:
+            break
+print("Program Complete")
+sys.exit
