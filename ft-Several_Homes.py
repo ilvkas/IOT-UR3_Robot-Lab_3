@@ -94,19 +94,20 @@ pickObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 
 transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0 
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
+transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
 HomePosition1_r2 = -0.36, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = -0.36, -0.12, 0.02, 0, 3.14, 0
+HomePositionDown1_r2 = -0.36, -0.12, 0.025, 0, 3.14, 0
 HomePosition2_r2 = -0.25, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = -0.25, -0.12, 0.020, 0, 3.14, 0
+HomePositionDown2_r2 = -0.25, -0.12, 0.025, 0, 3.14, 0
 HomePosition3_r2 = -0.36, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = -0.36, -0.22, 0.020, 0, 3.14, 0
+HomePositionDown3_r2 = -0.36, -0.22, 0.025, 0, 3.14, 0
 HomePosition4_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown4_r2 = -0.25, -0.22, 0.020, 0, 3.14, 0
+HomePositionDown4_r2 = -0.25, -0.22, 0.025, 0, 3.14, 0
 HomePosition5_r2 = -0.36, -0.32, 0.20, 0, 3.14, 0
-HomePositionDown5_r2 = -0.36, -0.32, 0.020, 0, 3.14, 0
+HomePositionDown5_r2 = -0.36, -0.32, 0.025, 0, 3.14, 0
 HomePosition6_r2 = -0.25, -0.32, 0.20, 0, 3.14, 0
-HomePositionDown6_r2 = -0.25, -0.32, 0.020, 0, 3.14, 0
+HomePositionDown6_r2 = -0.25, -0.32, 0.025, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.021, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r2 = 0.021, 0.246, -0.008, 0, 3.14, 0
@@ -149,7 +150,7 @@ def locateObject_r1(object, camera1, camera2):
     x_r1 = 0
     y_r1 = 0
     page = urllib.request.urlopen(camera1)
-    time.sleep(2)
+    time.sleep(1)
     page = urllib.request.urlopen(camera2)
     #reads output from camera
     coords = page.read().decode('utf-8')
@@ -164,7 +165,7 @@ def locateObject_r1(object, camera1, camera2):
             x_r1 = float(x_r1)
             x_r1 = x_r1  /1000
             y_r1 = y_r1  /1000
-            time.sleep(3)
+            time.sleep(1)
             print("R1: " + str(x_r1), str(y_r1))
             result=1
         else:
@@ -607,19 +608,8 @@ rob2.set_tcp((0,0,0.16,0,0,0))
 move(rob, clearCamera, True)
 move(rob2, clearCamera, True)
 setConveyorSpeed(0.3)
-'''
-while objectCount < 12:
-    if locateObject_r1(2,cam11,cam12) == 1 or locateObject_r2(3,cam21,cam22) == 1:
-        if locateObject_r1(2,cam11,cam12) == 1 and locateObject_r2(3,cam21,cam22) == 1:
-            Thread(target=CubeToHome).start()
-            Thread(target=CylinderToHome).start()
-        elif locateObject_r1(2,cam11,cam12) == 1:
-            CubeToHome()
-        elif locateObject_r2(3,cam21,cam22) == 1:
-            CylinderToHome()
-    else:
-        break
-sys.exit
+
+# Threads that work
 '''
 while objectCount < 12:
     if locateObject_r1(2,cam11,cam12) == 1 or locateObject_r2(3,cam21,cam22) == 1:
@@ -640,4 +630,27 @@ while objectCount < 12:
     else:
         break
 sys.exit
+'''
 
+#Conveyor Position Testing
+# List of conveyor positions
+#conveyor_positions_r1 = [ConveyorPosition1_r1, ConveyorPosition2_r1, ConveyorPosition3_r1, ConveyorPosition4_r1, ConveyorPosition5_r1, ConveyorPosition6_r1]
+#conveyor_positions_down_r1 = [ConveyorPositionDown1_r1, ConveyorPositionDown2_r1, ConveyorPositionDown3_r1, ConveyorPositionDown4_r1, ConveyorPositionDown5_r1, ConveyorPositionDown6_r1]
+conveyor_positions_r2 = [ConveyorPosition1_r2, ConveyorPosition2_r2, ConveyorPosition3_r2, ConveyorPosition4_r2, ConveyorPosition5_r2, ConveyorPosition6_r2]
+conveyor_positions_down_r2 = [ConveyorPositionDown1_r2, ConveyorPositionDown2_r2, ConveyorPositionDown3_r2, ConveyorPositionDown4_r2, ConveyorPositionDown5_r2, ConveyorPositionDown6_r2]
+
+# Function to move the robot to a given position
+def move_robot_to_position(position):
+    move(rob2, position, True)
+
+# Iterate over both sets of positions
+for upper_pos, down_pos in zip(conveyor_positions_r2, conveyor_positions_down_r2):
+    # Move to transition position first
+    move_robot_to_position(transitionConvPos_r2)
+    move_robot_to_position(transitionConvPos2_r2)
+
+    # Move to the upper conveyor position
+    move_robot_to_position(upper_pos)
+
+    # Move to the corresponding down conveyor position
+    move_robot_to_position(down_pos)
