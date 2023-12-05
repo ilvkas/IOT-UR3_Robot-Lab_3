@@ -182,7 +182,7 @@ def locateObject(object, camera1, camera2):
             print(x, y)
             result=1
         else:
-            print("Object number",object,"not detected")
+            print("Object number " + object + " not detected")
             result=0
     else:
         print("No object detected")
@@ -588,15 +588,15 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera)
-move(rob2, clearCamera)
+move(rob, clearCamera, False)
+move(rob2, clearCamera, False)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
     if locateObject(2,cam11,cam12) == 1 or locateObject(3,cam21,cam22) == 1:
         while locateObject(2,cam11,cam12) == 1 and locateObject(3,cam21,cam22) == 1:
-            Thread(target=CubeToHome()).start()
-            Thread(target=CylinderToHome()).start()
+            Thread(target=CubeToHome).start()
+            Thread(target=CylinderToHome).start()
         while locateObject(2,cam11,cam12) == 1:
             CubeToHome()
         while locateObject(3,cam21,cam22) == 1:
