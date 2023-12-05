@@ -93,6 +93,7 @@ pickObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 
 transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0 
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
+transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
 HomePosition1_r2 = -0.36, -0.12, 0.20, 0, 3.14, 0
 HomePositionDown1_r2 = -0.36, -0.12, 0.025, 0, 3.14, 0
@@ -339,6 +340,7 @@ def CylinderConveyorToHome():
     rob2.send_program(rq_open())
     time.sleep(0.1)
     move(rob2, transitionConvPos_r2, True)
+    move(rob2, transitionConvPos2_r2, True)
     move(rob2, pickObjectConveyor_r2, True)
     move(rob2, pickObjectConveyorDown_r2, True)
     #closes gripper
@@ -346,6 +348,7 @@ def CylinderConveyorToHome():
     #sleep to allow gripper to close fully before program resumes
     time.sleep(0.6)
     move(rob2, pickObjectConveyor_r2, True)
+    move(rob2, transitionConvPos2_r2, True)
     move(rob2, transitionConvPos_r2, True)
     move(rob2, placeObjectHome_r2, True)
     move(rob2, placeObjectHomeDown_r2, True)
@@ -395,11 +398,13 @@ def CubeToConveyor():
         time.sleep(0.6)
         move(rob2, overPickPos, True)
         move(rob2, transitionConvPos_r2, True)
+        move(rob2, transitionConvPos2_r2, True)
         move(rob2, placeObjectConveyor_r2, True)
         move(rob2, placeObjectConveyorDown_r2, True)
         rob2.send_program(rq_open())
         time.sleep(0.6)
         move(rob2, placeObjectConveyor_r2, True)
+        move(rob2, transitionConvPos2_r2, True)
         move(rob2, transitionConvPos_r2, True)
         time.sleep(0.2)
     else:
