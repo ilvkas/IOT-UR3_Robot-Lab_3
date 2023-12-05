@@ -23,6 +23,7 @@ a = 0.5
 #these x and y values are the distance from the robot base to the middle of the camera
 x = 0
 y = 0
+stop_threads = False
 objectLocated = 0
 Count = 0
 objectCount = 0
@@ -39,8 +40,7 @@ CubeConveyorPlaced = 0
 
 
 #positions x, y, z, rx, ry, rz
-clearCamera1 = 0.25, -0.22, 0.20, 0, 3.14, 0
-clearCamera2 = 0.25, -0.22, 0.30, 0, 3.14, 0
+clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
 
 #We have to change all the coordonates
 placeObjectHome_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
@@ -181,7 +181,7 @@ def locateObject_r1(object, camera1, camera2):
             print(x_r1, y_r1)
             result=1
         else:
-            print("Object number",object,"not detected")
+            print("Object number " + object + " not detected")
             result=0
     else:
         print("No object detected")
@@ -618,10 +618,22 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera1, True)
-move(rob2, clearCamera2, True)
+move(rob, clearCamera, False)
+move(rob2, clearCamera, False)
 setConveyorSpeed(0.3)
 
+def moveRob1_Thread():
+    while 1:
+        if stop_threads:
+            break
+        CubeToHome()
+
+def moveRob2_Thread():
+    while 1:
+        if stop_threads:
+            break
+        CylinderToHome()
+
 while locateObject_r1(2,cam11,cam12) == 1 and locateObject_r2(3,cam21,cam22) == 1:
-    Thread(target=CubeToHome()).start()
-    Thread(target=CylinderToHome()).start()
+    Thread(target=moveRob1_Thread).start()
+    Thread(target=moveRob2_Thread).start()
