@@ -56,30 +56,30 @@ transitionHomePos_r1 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r1 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
 HomePosition1_r1 = 0.35, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown1_r1 = 0.35, -0.13, 0.005, 0, 3.14, 0
+HomePositionDown1_r1 = 0.35, -0.13, 0.006, 0, 3.14, 0
 HomePosition2_r1 = 0.25, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown2_r1 = 0.25, -0.13, 0.005, 0, 3.14, 0
+HomePositionDown2_r1 = 0.25, -0.13, 0.006, 0, 3.14, 0
 HomePosition3_r1 = 0.35, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown3_r1 = 0.35, -0.23, 0.005, 0, 3.14, 0
+HomePositionDown3_r1 = 0.35, -0.23, 0.006, 0, 3.14, 0
 HomePosition4_r1 = 0.25, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown4_r1 = 0.25, -0.23, 0.005, 0, 3.14, 0
+HomePositionDown4_r1 = 0.25, -0.23, 0.006, 0, 3.14, 0
 HomePosition5_r1 = 0.35, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown5_r1 = 0.35, -0.33, 0.005, 0, 3.14, 0
+HomePositionDown5_r1 = 0.35, -0.33, 0.006, 0, 3.14, 0
 HomePosition6_r1 = 0.25, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown6_r1 = 0.25, -0.33, 0.005, 0, 3.14, 0
+HomePositionDown6_r1 = 0.25, -0.33, 0.006, 0, 3.14, 0
 
 ConveyorPosition1_r1 = 0.091, 0.334, 0.15, 0, 3.14, 0
-ConveyorPositionDown1_r1 = 0.091, 0.334, -0.008, 0, 3.14, 0
+ConveyorPositionDown1_r1 = 0.091, 0.334, -0.0, 0, 3.14, 0
 ConveyorPosition2_r1 = -0.009, 0.334, 0.15, 0, 3.14, 0
-ConveyorPositionDown2_r1 = -0.009, 0.334, -0.008, 0, 3.14, 0
+ConveyorPositionDown2_r1 = -0.009, 0.334, -0.0, 0, 3.14, 0
 ConveyorPosition3_r1 = 0.091, 0.434, 0.15, 0, 3.14, 0
-ConveyorPositionDown3_r1 = 0.091, 0.434, -0.008, 0, 3.14, 0
+ConveyorPositionDown3_r1 = 0.091, 0.434, -0.0, 0, 3.14, 0
 ConveyorPosition4_r1 = -0.009, 0.434, 0.15, 0, 3.14, 0
-ConveyorPositionDown4_r1 = -0.009, 0.434, -0.008, 0, 3.14, 0
+ConveyorPositionDown4_r1 = -0.009, 0.434, -0.0, 0, 3.14, 0
 ConveyorPosition5_r1 = 0.091, 0.534, 0.15, 0, 3.14, 0
-ConveyorPositionDown5_r1 = 0.091, 0.534, -0.008, 0, 3.14, 0
+ConveyorPositionDown5_r1 = 0.091, 0.534, -0.0, 0, 3.14, 0
 ConveyorPosition6_r1 = -0.009, 0.534, 0.15, 0, 3.14, 0
-ConveyorPositionDown6_r1 = -0.009, 0.534, -0.008, 0, 3.14, 0
+ConveyorPositionDown6_r1 = -0.009, 0.534, -0.0, 0, 3.14, 0
 
 
 placeObjectHome_r2 = 0.25, -0.15, 0.20, 0, 3.14, 0
@@ -96,30 +96,30 @@ transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
 HomePosition1_r2 = -0.36, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = -0.36, -0.12, 0.025, 0, 3.14, 0
+HomePositionDown1_r2 = -0.36, -0.12, 0.024, 0, 3.14, 0
 HomePosition2_r2 = -0.25, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = -0.25, -0.12, 0.025, 0, 3.14, 0
+HomePositionDown2_r2 = -0.25, -0.12, 0.024, 0, 3.14, 0
 HomePosition3_r2 = -0.36, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = -0.36, -0.22, 0.025, 0, 3.14, 0
+HomePositionDown3_r2 = -0.36, -0.22, 0.024, 0, 3.14, 0
 HomePosition4_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
-HomePositionDown4_r2 = -0.25, -0.22, 0.025, 0, 3.14, 0
+HomePositionDown4_r2 = -0.25, -0.22, 0.024, 0, 3.14, 0
 HomePosition5_r2 = -0.36, -0.32, 0.20, 0, 3.14, 0
-HomePositionDown5_r2 = -0.36, -0.32, 0.025, 0, 3.14, 0
+HomePositionDown5_r2 = -0.36, -0.32, 0.024, 0, 3.14, 0
 HomePosition6_r2 = -0.25, -0.32, 0.20, 0, 3.14, 0
-HomePositionDown6_r2 = -0.25, -0.32, 0.025, 0, 3.14, 0
+HomePositionDown6_r2 = -0.25, -0.32, 0.024, 0, 3.14, 0
 
-ConveyorPosition1_r2 = 0.021, 0.246, 0.15, 0, 3.14, 0
-ConveyorPositionDown1_r2 = 0.021, 0.246, -0.008, 0, 3.14, 0
-ConveyorPosition2_r2 = -0.079, 0.246, 0.15, 0, 3.14, 0
-ConveyorPositionDown2_r2 = -0.079, 0.246, -0.008, 0, 3.14, 0
-ConveyorPosition3_r2 = 0.021, 0.346, 0.15, 0, 3.14, 0
-ConveyorPositionDown3_r2 = 0.021, 0.346, -0.008, 0, 3.14, 0
-ConveyorPosition4_r2 = -0.079, 0.346, 0.15, 0, 3.14, 0
-ConveyorPositionDown4_r2 = -0.079, 0.346, -0.008, 0, 3.14, 0
-ConveyorPosition5_r2 = 0.021, 0.446, 0.15, 0, 3.14, 0
-ConveyorPositionDown5_r2 = 0.021, 0.446, -0.008, 0, 3.14, 0
-ConveyorPosition6_r2 = -0.079, 0.446, 0.15, 0, 3.14, 0
-ConveyorPositionDown6_r2 = -0.079, 0.446, -0.008, 0, 3.14, 0
+ConveyorPosition1_r2 = 0.006, 0.246, 0.15, 0, 3.14, 0
+ConveyorPositionDown1_r2 = 0.006, 0.246, -0.008, 0, 3.14, 0
+ConveyorPosition2_r2 = -0.094, 0.246, 0.15, 0, 3.14, 0
+ConveyorPositionDown2_r2 = -0.094, 0.246, -0.008, 0, 3.14, 0
+ConveyorPosition3_r2 = 0.006, 0.346, 0.15, 0, 3.14, 0
+ConveyorPositionDown3_r2 = 0.006, 0.346, -0.008, 0, 3.14, 0
+ConveyorPosition4_r2 = -0.094, 0.346, 0.15, 0, 3.14, 0
+ConveyorPositionDown4_r2 = -0.094, 0.346, -0.008, 0, 3.14, 0
+ConveyorPosition5_r2 = 0.006, 0.446, 0.15, 0, 3.14, 0
+ConveyorPositionDown5_r2 = 0.006, 0.446, -0.008, 0, 3.14, 0
+ConveyorPosition6_r2 = -0.094, 0.446, 0.15, 0, 3.14, 0
+ConveyorPositionDown6_r2 = -0.094, 0.446, -0.008, 0, 3.14, 0
 
 #connects to robot
 def robConnect():
@@ -168,7 +168,7 @@ def locateObject_r1(object, camera1, camera2):
             print("R1: " + str(x_r1), str(y_r1))
             result=1
         else:
-            print("R1 No object " +object+ " detected")
+            print("R1 No object ",object," detected")
             result=0
     else:
         print("R1 no object detected")
@@ -199,7 +199,7 @@ def locateObject_r2(object, camera1, camera2):
             print("R2: " + str(x_r2), str(y_r2))
             result=1
         else:
-            print("R2 No object " +object+ " detected")
+            print("R2 No object ",object," detected")
             result=0
     else:
         print("R2 no object detected")
@@ -267,7 +267,7 @@ def CylinderToConveyor():
             placeObjectConveyorDown_r1 = ConveyorPositionDown6_r1
 
         overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
-        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -385,7 +385,7 @@ def CubeToConveyor():
             placeObjectConveyorDown_r2 = ConveyorPositionDown6_r2
 
         overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
-        pickPos = x_r2, y_r2, 0.005, 0.0, 3.14, 0.0
+        pickPos = x_r2, y_r2, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
         time.sleep(0.1)
@@ -505,7 +505,7 @@ def CubeToHome():
             placeObjectHomeDown_r1 = HomePositionDown6_r1
 
         overPickPos = x_r1, y_r1, 0.1, 0.0, 3.14, 0.0
-        pickPos = x_r1, y_r1, 0.005, 0.0, 3.14, 0.0
+        pickPos = x_r1, y_r1, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob.send_program(rq_open())
         time.sleep(0.1)
@@ -609,8 +609,8 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera, False)
-move(rob2, clearCamera, False)
+move(rob, clearCamera, True)
+move(rob2, clearCamera, True)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
