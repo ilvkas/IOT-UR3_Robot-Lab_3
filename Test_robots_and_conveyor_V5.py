@@ -195,6 +195,8 @@ def locateObject_r1(object, camera0, camera1, camera2):
             x_r1 = x1[3]
             y_r1 = float(y_r1)
             x_r1 = float(x_r1)
+            x_r1 = x_r1*0.93
+            y_r1 = y_r1*0.93
             x_r1 = x_r1  /1000
             y_r1 = y_r1  /1000
             time.sleep(1)
@@ -228,6 +230,8 @@ def locateObject_r2(object, camera0, camera1, camera2):
             x_r2 = x1[3]
             y_r2 = float(y_r2)
             x_r2 = float(x_r2)
+            x_r2 = x_r2*0.93
+            y_r2 = y_r2*0.93
             x_r2 = x_r2  /1000
             y_r2 = y_r2 /1000
             time.sleep(1)
