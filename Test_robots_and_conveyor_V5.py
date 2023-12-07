@@ -45,7 +45,7 @@ CubeConveyorPlaced = 0
 
 #positions x, y, z, rx, ry, rz
 clearCamera_r1 = -0.25, 0.0, 0.20, 0, 3.14, 0
-clearCamera_r2 = -0.25, 0.0, 0.20, 0, 3.14, 0
+clearCamera_r2 = 0.25, 0.0, 0.20, 0, 3.14, 0
 
 #We have to change all the coordonates
 placeObjectHome_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
@@ -113,18 +113,18 @@ transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
-HomePosition1_r2 = -0.37, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = -0.37, -0.12, 0.025, 0, 3.14, 0
-HomePosition2_r2 = -0.27, -0.12, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = -0.27, -0.12, 0.025, 0, 3.14, 0
-HomePosition3_r2 = -0.37, -0.205, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = -0.37, -0.205, 0.025, 0, 3.14, 0
-HomePosition4_r2 = -0.27, -0.205, 0.20, 0, 3.14, 0
-HomePositionDown4_r2 = -0.27, -0.205, 0.025, 0, 3.14, 0
-HomePosition5_r2 = -0.37, -0.29, 0.20, 0, 3.14, 0
-HomePositionDown5_r2 = -0.37, -0.29, 0.025, 0, 3.14, 0
-HomePosition6_r2 = -0.27, -0.29, 0.20, 0, 3.14, 0
-HomePositionDown6_r2 = -0.27, -0.29, 0.025, 0, 3.14, 0
+HomePosition1_r2 = -0.37, -0.11, 0.20, 0, 3.14, 0
+HomePositionDown1_r2 = -0.37, -0.11, 0.025, 0, 3.14, 0
+HomePosition2_r2 = -0.27, -0.11, 0.20, 0, 3.14, 0
+HomePositionDown2_r2 = -0.27, -0.11, 0.025, 0, 3.14, 0
+HomePosition3_r2 = -0.37, -0.185, 0.20, 0, 3.14, 0
+HomePositionDown3_r2 = -0.37, -0.185, 0.025, 0, 3.14, 0
+HomePosition4_r2 = -0.27, -0.185, 0.20, 0, 3.14, 0
+HomePositionDown4_r2 = -0.27, -0.185, 0.025, 0, 3.14, 0
+HomePosition5_r2 = -0.37, -0.26, 0.20, 0, 3.14, 0
+HomePositionDown5_r2 = -0.37, -0.26, 0.025, 0, 3.14, 0
+HomePosition6_r2 = -0.27, -0.26, 0.20, 0, 3.14, 0
+HomePositionDown6_r2 = -0.27, -0.26, 0.025, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.006, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r2 = 0.006, 0.246, 0, 0, 3.14, 0
@@ -139,18 +139,18 @@ ConveyorPositionDown5_r2 = 0.006, 0.446, 0, 0, 3.14, 0
 ConveyorPosition6_r2 = -0.094, 0.446, 0.15, 0, 3.14, 0
 ConveyorPositionDown6_r2 = -0.094, 0.446, 0, 0, 3.14, 0
 
-ConveyorPickPosition1_r2 = 0.008, 0.246, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown1_r2 = 0.008, 0.246, 0, 0, 3.14, 0
-ConveyorPickPosition2_r2 = -0.092, 0.246, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown2_r2 = -0.092, 0.246, 0, 0, 3.14, 0
-ConveyorPickPosition3_r2 = 0.008, 0.346, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown3_r2 = 0.008, 0.346, 0, 0, 3.14, 0
-ConveyorPickPosition4_r2 = -0.092, 0.346, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown4_r2 = -0.092, 0.346, 0, 0, 3.14, 0
-ConveyorPickPosition5_r2 = 0.008, 0.446, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown5_r2 = 0.008, 0.446, 0, 0, 3.14, 0
-ConveyorPickPosition6_r2 = -0.092, 0.446, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown6_r2 = -0.092, 0.446, 0, 0, 3.14, 0
+ConveyorPickPosition1_r2 = 0.01, 0.246, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown1_r2 = 0.01, 0.246, 0, 0, 3.14, 0
+ConveyorPickPosition2_r2 = -0.09, 0.246, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown2_r2 = -0.09, 0.246, 0, 0, 3.14, 0
+ConveyorPickPosition3_r2 = 0.01, 0.346, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown3_r2 = 0.01, 0.346, 0, 0, 3.14, 0
+ConveyorPickPosition4_r2 = -0.09, 0.346, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown4_r2 = -0.090, 0.346, 0, 0, 3.14, 0
+ConveyorPickPosition5_r2 = 0.01, 0.446, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown5_r2 = 0.01, 0.446, 0, 0, 3.14, 0
+ConveyorPickPosition6_r2 = -0.09, 0.446, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown6_r2 = -0.09, 0.446, 0, 0, 3.14, 0
 
 #connects to robot
 def robConnect():
@@ -374,6 +374,8 @@ def CylinderConveyorToHome():
 
     rob2.send_program(rq_open())
     time.sleep(0.1)
+    move(rob2, transitionHomePos_r2, True)
+    move(rob2, transitionConvPos_r2, True)
     move(rob2, transitionConvPos2_r2, True)
     move(rob2, pickObjectConveyor_r2, True)
     move(rob2, pickObjectConveyorDown_r2, True)
@@ -389,6 +391,7 @@ def CylinderConveyorToHome():
     rob2.send_program(rq_open())
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
+    move(rob2, transitionHomePos_r2, True)
     move(rob2, clearCamera_r2, True)
     time.sleep(0.2)
     objectCount += 1
@@ -440,6 +443,8 @@ def CubeToConveyor():
         time.sleep(0.6)
         move(rob2, placeObjectConveyor_r2, True)
         move(rob2, transitionConvPos2_r2, True)
+        move(rob2, transitionConvPos_r2, True)
+        move(rob2, transitionHomePos_r2, True)
         move(rob2, clearCamera_r2, True)
         time.sleep(0.2)
         CubeConveyorPlaced += 1
@@ -616,6 +621,7 @@ def CylinderToHome():
         rob2.send_program(rq_open())
         time.sleep(0.6)
         move(rob2, placeObjectHome_r2, True)
+        move(rob2, transitionHomePos_r2, True)
         move(rob2, clearCamera_r2, True)
         time.sleep(0.2)
         objectCount += 1
