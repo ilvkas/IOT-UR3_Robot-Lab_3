@@ -666,7 +666,7 @@ Thread_1.join()
 Thread_2.join()
 
 
-while objectCount < 12:
+while True : #Change this line if you want a precise number of Objects placed
     if locateObject_r1(3,cam102,cam11,cam12) == 1:
         while True :
             if locateObject_r1(3,cam102,cam11,cam12) == 0:
@@ -753,5 +753,9 @@ while objectCount < 12:
             CylinderToHome()
         else:
             break
+
+    else:
+        break
+        
 print("Program Complete")
 sys.exit
