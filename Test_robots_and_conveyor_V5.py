@@ -621,17 +621,21 @@ setConveyorSpeed(0.3)
 
 while objectCount < 12:
     if locateObject_r1(3,cam10,cam11,cam12) == 1:
-        while locateObject_r1(3,cam10,cam11,cam12) == 1:
-            if locateObject_r2(3,cam20,cam21,cam22) == 1:
-                CylinderConveyorCount += 1
-                Thread_1 = Thread(target=CylinderToConveyor)
-                Thread_2 = Thread(target=CylinderToHome)
-                Thread_1.start()
-                Thread_2.start()
-                Thread_1.join()
-                Thread_2.join()
-            CylinderConveyorCount += 1
-            CylinderToConveyor()
+        while True :
+            if locateObject_r1(3,cam10,cam11,cam12) == 0:
+                break
+            else:
+                if locateObject_r2(3,cam20,cam21,cam22) == 1:
+                    CylinderConveyorCount += 1
+                    Thread_1 = Thread(target=CylinderToConveyor)
+                    Thread_2 = Thread(target=CylinderToHome)
+                    Thread_1.start()
+                    Thread_2.start()
+                    Thread_1.join()
+                    Thread_2.join()
+                elif locateObject_r2(3,cam20,cam21,cam22) == 0:
+                    CylinderConveyorCount += 1
+                    CylinderToConveyor()
         CylinderConveyorCount = 0
         startConveyor()
         time.sleep(7.5)
@@ -645,30 +649,35 @@ while objectCount < 12:
                 Thread_2.start()
                 Thread_1.join()
                 Thread_2.join()
-            CylinderConveyorCount += 1
-            CylinderConveyorToHome()
+            elif locateObject_r1(2,cam10,cam11,cam12) == 0:
+                CylinderConveyorCount += 1
+                CylinderConveyorToHome()
         CylinderConveyorCount = 0
         CylinderConveyorPlaced = 0
     
 
     elif locateObject_r2(2,cam20,cam21,cam22) == 1:
-        while locateObject_r2(2,cam20,cam21,cam22) == 1:
-            if locateObject_r1(2,cam10,cam11,cam12) == 1:
-                CubeConveyorCount += 1
-                Thread_1 = Thread(target=CubeToConveyor)
-                Thread_2 = Thread(target=CubeToHome)
-                Thread_1.start()
-                Thread_2.start()
-                Thread_1.join()
-                Thread_2.join()
-            CubeConveyorCount += 1
-            CubeToConveyor()
+        while True :
+            if locateObject_r2(2,cam20,cam21,cam22) == 0:
+                break
+            else:
+                if locateObject_r1(2,cam10,cam11,cam12) == 1:
+                    CubeConveyorCount += 1
+                    Thread_1 = Thread(target=CubeToConveyor)
+                    Thread_2 = Thread(target=CubeToHome)
+                    Thread_1.start()
+                    Thread_2.start()
+                    Thread_1.join()
+                    Thread_2.join()
+                elif locateObject_r1(2,cam10,cam11,cam12) == 0:
+                    CubeConveyorCount += 1
+                    CubeToConveyor()
         CubeConveyorCount = 0
         reverseConveyor()
         time.sleep(7.5)
         stopConveyor()
         while CubeConveyorCount < CubeConveyorPlaced:
-            while locateObject_r1(2,cam10,cam11,cam12) == 1:
+            if locateObject_r1(2,cam10,cam11,cam12) == 1:
                 CubeConveyorCount += 1
                 Thread_1 = Thread(target=CubeConveyorToHome)
                 Thread_2 = Thread(target=CylinderToHome)
@@ -676,8 +685,9 @@ while objectCount < 12:
                 Thread_2.start()
                 Thread_1.join()
                 Thread_2.join()
-            CubeConveyorCount += 1
-            CubeConveyorToHome()
+            elif locateObject_r1(2,cam10,cam11,cam12) == 1:
+                CubeConveyorCount += 1
+                CubeConveyorToHome()
         CubeConveyorCount = 0
         CubeConveyorPlaced = 0
 
