@@ -294,7 +294,7 @@ def CylinderToConveyor():
         rob.send_program(rq_open())
         time.sleep(0.6)
         move(rob, placeObjectConveyor_r1, True)
-        move(rob, transitionConvPos_r1, True)
+        move(rob, clearCamera_r1, True)
         time.sleep(0.2)
         CylinderConveyorPlaced += 1
     else:
@@ -364,7 +364,7 @@ def CylinderConveyorToHome():
     rob2.send_program(rq_open())
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
-    move(rob2, transitionConvPos_r2, True)
+    move(rob2, clearCamera_r2, True)
     time.sleep(0.2)
     objectCount += 1
     CylinderHomeCount += 1
@@ -415,7 +415,7 @@ def CubeToConveyor():
         time.sleep(0.6)
         move(rob2, placeObjectConveyor_r2, True)
         move(rob2, transitionConvPos2_r2, True)
-        move(rob2, transitionConvPos_r2, True)
+        move(rob2, clearCamera_r2, True)
         time.sleep(0.2)
     else:
         print("No cube to put on conveyor")
@@ -482,7 +482,7 @@ def CubeConveyorToHome():
     rob.send_program(rq_open())
     time.sleep(0.6)
     move(rob, placeObjectHome_r1, True)
-    move(rob, transitionConvPos_r1, True)
+    move(rob, clearCamera_r1, True)
     time.sleep(0.2)
     objectCount += 1
     CubeHomeCount += 1
@@ -534,7 +534,7 @@ def CubeToHome():
         rob.send_program(rq_open())
         time.sleep(0.6)
         move(rob, placeObjectHome_r1, True)
-        move(rob, transitionConvPos_r1, True)
+        move(rob, clearCamera_r1, True)
         time.sleep(0.2)
         objectCount += 1
         CubeHomeCount += 1
@@ -588,7 +588,7 @@ def CylinderToHome():
         rob2.send_program(rq_open())
         time.sleep(0.6)
         move(rob2, placeObjectHome_r2, True)
-        move(rob2, transitionConvPos_r2, True)
+        move(rob2, clearCamera_r2, True)
         time.sleep(0.2)
         objectCount += 1
         CylinderHomeCount += 1
