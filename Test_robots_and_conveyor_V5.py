@@ -687,7 +687,7 @@ while objectCount < 12:
         time.sleep(7.5)
         stopConveyor()
         while CubeConveyorCount < CubeConveyorPlaced:
-            if locateObject_r1(2,cam101,cam11,cam12) == 1:
+            if locateObject_r2(3,cam202,cam21,cam22) == 1:
                 CubeConveyorCount += 1
                 Thread_1 = Thread(target=CubeConveyorToHome)
                 Thread_2 = Thread(target=CylinderToHome)
@@ -695,7 +695,7 @@ while objectCount < 12:
                 Thread_2.start()
                 Thread_1.join()
                 Thread_2.join()
-            elif locateObject_r1(2,cam101,cam11,cam12) == 1:
+            elif locateObject_r2(3,cam202,cam21,cam22) == 0:
                 CubeConveyorCount += 1
                 CubeConveyorToHome()
         CubeConveyorCount = 0
