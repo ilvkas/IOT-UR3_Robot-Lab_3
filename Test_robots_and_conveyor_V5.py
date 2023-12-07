@@ -440,23 +440,23 @@ def CubeConveyorToHome():
     global pickObjectConveyor_r1, pickObjectConveyorDown_r1, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount, CubeConveyorCount
 
     if CubeConveyorCount == 1:
-        pickObjectConveyor_r1 = ConveyorPosition1_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown1_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition1_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown1_r1
     elif CubeConveyorCount == 2:
-        pickObjectConveyor_r1 = ConveyorPosition2_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown2_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition2_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown2_r1
     elif CubeConveyorCount == 3:
-        pickObjectConveyor_r1 = ConveyorPosition3_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown3_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition3_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown3_r1
     elif CubeConveyorCount == 4:
-        pickObjectConveyor_r1 = ConveyorPosition4_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown4_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition4_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown4_r1
     elif CubeConveyorCount == 5:
-        pickObjectConveyor_r1 = ConveyorPosition5_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown5_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition5_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown5_r1
     elif CubeConveyorCount == 6:
-        pickObjectConveyor_r1 = ConveyorPosition6_r1
-        pickObjectConveyorDown_r1 = ConveyorPositionDown6_r1
+        pickObjectConveyor_r1 = ConveyorPickPosition6_r1
+        pickObjectConveyorDown_r1 = ConveyorPickPositionDown6_r1
 
     if CubeHomeCount%6 == 0:
         CubeHomeCount = 0
