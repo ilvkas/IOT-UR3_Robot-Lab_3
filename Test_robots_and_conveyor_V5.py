@@ -353,7 +353,7 @@ def CylinderConveyorToHome():
         pickObjectConveyorDown_r2 = ConveyorPickPositionDown6_r2
 
     if CylinderHomeCount%6 == 0:
-        CylinderHomeCount = 0
+        CylinderHomeCount = 4
 
     if CylinderHomeCount == 0:
         placeObjectHome_r2 = HomePosition1_r2
@@ -581,7 +581,7 @@ def CylinderToHome():
         global x_r2, y_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
 
         if CylinderHomeCount%6 == 0:
-            CylinderHomeCount = 0
+            CylinderHomeCount = 4
 
         if CylinderHomeCount == 0:
             placeObjectHome_r2 = HomePosition1_r2
