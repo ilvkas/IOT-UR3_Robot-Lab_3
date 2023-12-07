@@ -650,9 +650,15 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera_r1, True)
-move(rob2, clearCamera_r2, True)
 setConveyorSpeed(0.3)
+
+Thread_1 = Thread(target = move(rob, clearCamera_r1, True))
+Thread_2 = Thread(target = move(rob2, clearCamera_r2, True))
+Thread_1.start()
+Thread_2.start()
+Thread_1.join()
+Thread_2.join()
+
 
 while objectCount < 12:
     if locateObject_r1(3,cam102,cam11,cam12) == 1:
