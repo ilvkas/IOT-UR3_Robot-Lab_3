@@ -113,18 +113,18 @@ transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
-HomePosition1_r2 = -0.37, -0.11, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = -0.37, -0.11, 0.025, 0, 3.14, 0
-HomePosition2_r2 = -0.27, -0.11, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = -0.27, -0.11, 0.025, 0, 3.14, 0
-HomePosition3_r2 = -0.37, -0.185, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = -0.37, -0.185, 0.025, 0, 3.14, 0
-HomePosition4_r2 = -0.27, -0.185, 0.20, 0, 3.14, 0
-HomePositionDown4_r2 = -0.27, -0.185, 0.025, 0, 3.14, 0
-HomePosition5_r2 = -0.37, -0.26, 0.20, 0, 3.14, 0
-HomePositionDown5_r2 = -0.37, -0.26, 0.025, 0, 3.14, 0
-HomePosition6_r2 = -0.27, -0.26, 0.20, 0, 3.14, 0
-HomePositionDown6_r2 = -0.27, -0.26, 0.025, 0, 3.14, 0
+HomePosition1_r2 = -0.22, -0.11, 0.20, 0, 3.14, 0
+HomePositionDown1_r2 = -0.22, -0.11, 0.025, 0, 3.14, 0
+HomePosition2_r2 = -0.22, -0.11, 0.20, 0, 3.14, 0
+HomePositionDown2_r2 = -0.22, -0.11, 0.025, 0, 3.14, 0
+HomePosition3_r2 = -0.22, -0.185, 0.20, 0, 3.14, 0
+HomePositionDown3_r2 = -0.22, -0.185, 0.025, 0, 3.14, 0
+HomePosition4_r2 = -0.22, -0.185, 0.22, 0, 3.14, 0
+HomePositionDown4_r2 = -0.22, -0.185, 0.1, 0, 3.14, 0
+HomePosition5_r2 = -0.22, -0.26, 0.22, 0, 3.14, 0
+HomePositionDown5_r2 = -0.22, -0.26, 0.1, 0, 3.14, 0
+HomePosition6_r2 = -0.22, -0.26, 0.22, 0, 3.14, 0
+HomePositionDown6_r2 = -0.22, -0.26, 0.1, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.006, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r2 = 0.006, 0.246, 0, 0, 3.14, 0
@@ -499,7 +499,6 @@ def CubeConveyorToHome():
 
     rob.send_program(rq_open())
     time.sleep(0.1)
-    move(rob, transitionConvPos_r1, True)
     move(rob, pickObjectConveyor_r1, True)
     move(rob, pickObjectConveyorDown_r1, True)
     #closes gripper
