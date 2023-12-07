@@ -109,7 +109,7 @@ placeObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 pickObjectConveyor_r2 = 0.05, 0.4, 0.20, 0, 3.14, 0
 pickObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 
-transitionHomePos_r2 = 0.0, -0.3, 0.22, 0, 3.14, 0 
+transitionHomePos_r2 = 0.1, -0.3, 0.22, 0, 3.14, 0 
 transitionConvPos_r2 = -0.25, -0.22, 0.22, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.22, 0, 3.14, 0
 
