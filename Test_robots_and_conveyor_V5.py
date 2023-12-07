@@ -100,17 +100,17 @@ transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
-HomePosition1_r2 = -0.36, -0.12, 0.20, 0, 3.14, 0
+HomePosition1_r2 = -0.37, -0.12, 0.20, 0, 3.14, 0
 HomePositionDown1_r2 = -0.36, -0.12, 0.025, 0, 3.14, 0
-HomePosition2_r2 = -0.25, -0.12, 0.20, 0, 3.14, 0
+HomePosition2_r2 = -0.27, -0.12, 0.20, 0, 3.14, 0
 HomePositionDown2_r2 = -0.25, -0.12, 0.025, 0, 3.14, 0
-HomePosition3_r2 = -0.36, -0.22, 0.20, 0, 3.14, 0
+HomePosition3_r2 = -0.37, -0.22, 0.20, 0, 3.14, 0
 HomePositionDown3_r2 = -0.36, -0.22, 0.025, 0, 3.14, 0
-HomePosition4_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
+HomePosition4_r2 = -0.27, -0.22, 0.20, 0, 3.14, 0
 HomePositionDown4_r2 = -0.25, -0.22, 0.025, 0, 3.14, 0
-HomePosition5_r2 = -0.36, -0.32, 0.20, 0, 3.14, 0
+HomePosition5_r2 = -0.37, -0.32, 0.20, 0, 3.14, 0
 HomePositionDown5_r2 = -0.36, -0.32, 0.025, 0, 3.14, 0
-HomePosition6_r2 = -0.25, -0.32, 0.20, 0, 3.14, 0
+HomePosition6_r2 = -0.27, -0.32, 0.20, 0, 3.14, 0
 HomePositionDown6_r2 = -0.25, -0.32, 0.025, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.006, 0.246, 0.15, 0, 3.14, 0
@@ -373,7 +373,7 @@ def CylinderConveyorToHome():
 #Transition cube to conveyor (T4)
 def CubeToConveyor():
     if locateObject_r2(2,cam201,cam21,cam22) == 1:
-        global x_r2, y_r2, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
+        global x_r2, y_r2, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount, CubeConveyorPlaced
 
         if CubeConveyorCount == 1:
             placeObjectConveyor_r2 = ConveyorPosition1_r2
@@ -417,6 +417,7 @@ def CubeToConveyor():
         move(rob2, transitionConvPos2_r2, True)
         move(rob2, clearCamera_r2, True)
         time.sleep(0.2)
+        CubeConveyorPlaced += 1
     else:
         print("No cube to put on conveyor")
 
