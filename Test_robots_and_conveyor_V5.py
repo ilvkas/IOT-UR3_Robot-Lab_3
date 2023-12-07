@@ -139,6 +139,19 @@ ConveyorPositionDown5_r2 = 0.006, 0.446, 0, 0, 3.14, 0
 ConveyorPosition6_r2 = -0.094, 0.446, 0.15, 0, 3.14, 0
 ConveyorPositionDown6_r2 = -0.094, 0.446, 0, 0, 3.14, 0
 
+ConveyorPickPosition1_r2 = 0.008, 0.246, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown1_r2 = 0.008, 0.246, 0, 0, 3.14, 0
+ConveyorPickPosition2_r2 = -0.092, 0.246, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown2_r2 = -0.092, 0.246, 0, 0, 3.14, 0
+ConveyorPickPosition3_r2 = 0.008, 0.346, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown3_r2 = 0.008, 0.346, 0, 0, 3.14, 0
+ConveyorPickPosition4_r2 = -0.092, 0.346, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown4_r2 = -0.092, 0.346, 0, 0, 3.14, 0
+ConveyorPickPosition5_r2 = 0.008, 0.446, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown5_r2 = 0.008, 0.446, 0, 0, 3.14, 0
+ConveyorPickPosition6_r2 = -0.092, 0.446, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown6_r2 = -0.092, 0.446, 0, 0, 3.14, 0
+
 #connects to robot
 def robConnect():
     global rob, rob2
@@ -319,23 +332,23 @@ def CylinderConveyorToHome():
     global pickObjectConveyor_r2, pickObjectConveyorDown_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount, CylinderConveyorCount
 
     if CylinderConveyorCount == 1:
-        pickObjectConveyor_r2 = ConveyorPosition1_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown1_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition1_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown1_r2
     elif CylinderConveyorCount == 2:
-        pickObjectConveyor_r2 = ConveyorPosition2_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown2_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition2_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown2_r2
     elif CylinderConveyorCount == 3:
-        pickObjectConveyor_r2 = ConveyorPosition3_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown3_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition3_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown3_r2
     elif CylinderConveyorCount == 4:
-        pickObjectConveyor_r2 = ConveyorPosition4_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown4_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition4_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown4_r2
     elif CylinderConveyorCount == 5:
-        pickObjectConveyor_r2 = ConveyorPosition5_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown5_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition5_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown5_r2
     elif CylinderConveyorCount == 6:
-        pickObjectConveyor_r2 = ConveyorPosition6_r2
-        pickObjectConveyorDown_r2 = ConveyorPositionDown6_r2
+        pickObjectConveyor_r2 = ConveyorPickPosition6_r2
+        pickObjectConveyorDown_r2 = ConveyorPickPositionDown6_r2
 
     if CylinderHomeCount%6 == 0:
         CylinderHomeCount = 0
