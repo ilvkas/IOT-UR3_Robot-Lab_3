@@ -61,17 +61,17 @@ transitionHomePos_r1 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r1 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
 HomePosition1_r1 = 0.35, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown1_r1 = 0.35, -0.13, 0.02, 0, 3.14, 0
+HomePositionDown1_r1 = 0.35, -0.13, 0.04, 0, 3.14, 0
 HomePosition2_r1 = 0.25, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown2_r1 = 0.25, -0.13, 0.02, 0, 3.14, 0
+HomePositionDown2_r1 = 0.25, -0.13, 0.04, 0, 3.14, 0
 HomePosition3_r1 = 0.35, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown3_r1 = 0.35, -0.23, 0.02, 0, 3.14, 0
+HomePositionDown3_r1 = 0.35, -0.23, 0.04, 0, 3.14, 0
 HomePosition4_r1 = 0.25, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown4_r1 = 0.25, -0.23, 0.02, 0, 3.14, 0
+HomePositionDown4_r1 = 0.25, -0.23, 0.04, 0, 3.14, 0
 HomePosition5_r1 = 0.35, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown5_r1 = 0.35, -0.33, 0.02, 0, 3.14, 0
+HomePositionDown5_r1 = 0.35, -0.33, 0.04, 0, 3.14, 0
 HomePosition6_r1 = 0.25, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown6_r1 = 0.25, -0.33, 0.02, 0, 3.14, 0
+HomePositionDown6_r1 = 0.25, -0.33, 0.04, 0, 3.14, 0
 
 ConveyorPosition1_r1 = 0.091, 0.334, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r1 = 0.091, 0.334, 0, 0, 3.14, 0
@@ -85,6 +85,19 @@ ConveyorPosition5_r1 = 0.091, 0.534, 0.15, 0, 3.14, 0
 ConveyorPositionDown5_r1 = 0.091, 0.534, 0, 0, 3.14, 0
 ConveyorPosition6_r1 = -0.009, 0.534, 0.15, 0, 3.14, 0
 ConveyorPositionDown6_r1 = -0.009, 0.534, 0, 0, 3.14, 0
+
+ConveyorPickPosition1_r1 = 0.087, 0.334, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown1_r1 = 0.087, 0.334, 0, 0, 3.14, 0
+ConveyorPickPosition2_r1 = -0.005, 0.334, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown2_r1 = -0.005, 0.334, 0, 0, 3.14, 0
+ConveyorPickPosition3_r1 = 0.087, 0.434, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown3_r1 = 0.087, 0.434, 0, 0, 3.14, 0
+ConveyorPickPosition4_r1 = -0.005, 0.434, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown4_r1 = -0.005, 0.434, 0, 0, 3.14, 0
+ConveyorPickPosition5_r1 = 0.087, 0.534, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown5_r1 = 0.087, 0.534, 0, 0, 3.14, 0
+ConveyorPickPosition6_r1 = -0.005, 0.534, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown6_r1 = -0.005, 0.534, 0, 0, 3.14, 0
 
 
 placeObjectHome_r2 = 0.25, -0.15, 0.20, 0, 3.14, 0
