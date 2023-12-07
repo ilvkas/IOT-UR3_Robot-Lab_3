@@ -86,18 +86,18 @@ ConveyorPositionDown5_r1 = 0.091, 0.534, 0, 0, 3.14, 0
 ConveyorPosition6_r1 = -0.009, 0.534, 0.15, 0, 3.14, 0
 ConveyorPositionDown6_r1 = -0.009, 0.534, 0, 0, 3.14, 0
 
-ConveyorPickPosition1_r1 = 0.087, 0.334, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown1_r1 = 0.087, 0.334, 0, 0, 3.14, 0
-ConveyorPickPosition2_r1 = -0.005, 0.334, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown2_r1 = -0.005, 0.334, 0, 0, 3.14, 0
-ConveyorPickPosition3_r1 = 0.087, 0.434, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown3_r1 = 0.087, 0.434, 0, 0, 3.14, 0
-ConveyorPickPosition4_r1 = -0.005, 0.434, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown4_r1 = -0.005, 0.434, 0, 0, 3.14, 0
-ConveyorPickPosition5_r1 = 0.087, 0.534, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown5_r1 = 0.087, 0.534, 0, 0, 3.14, 0
-ConveyorPickPosition6_r1 = -0.005, 0.534, 0.15, 0, 3.14, 0
-ConveyorPickPositionDown6_r1 = -0.005, 0.534, 0, 0, 3.14, 0
+ConveyorPickPosition1_r1 = 0.088, 0.334, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown1_r1 = 0.088, 0.334, 0, 0, 3.14, 0
+ConveyorPickPosition2_r1 = -0.012, 0.334, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown2_r1 = -0.012, 0.334, 0, 0, 3.14, 0
+ConveyorPickPosition3_r1 = 0.088, 0.434, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown3_r1 = 0.088, 0.434, 0, 0, 3.14, 0
+ConveyorPickPosition4_r1 = -0.012, 0.434, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown4_r1 = -0.012, 0.434, 0, 0, 3.14, 0
+ConveyorPickPosition5_r1 = 0.088, 0.534, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown5_r1 = 0.088, 0.534, 0, 0, 3.14, 0
+ConveyorPickPosition6_r1 = -0.012, 0.534, 0.15, 0, 3.14, 0
+ConveyorPickPositionDown6_r1 = -0.012, 0.534, 0, 0, 3.14, 0
 
 
 placeObjectHome_r2 = 0.25, -0.15, 0.20, 0, 3.14, 0
