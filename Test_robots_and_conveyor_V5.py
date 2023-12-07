@@ -113,18 +113,18 @@ transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
 transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
 
-HomePosition1_r2 = -0.22, -0.11, 0.20, 0, 3.14, 0
-HomePositionDown1_r2 = -0.22, -0.11, 0.025, 0, 3.14, 0
-HomePosition2_r2 = -0.22, -0.11, 0.20, 0, 3.14, 0
-HomePositionDown2_r2 = -0.22, -0.11, 0.025, 0, 3.14, 0
-HomePosition3_r2 = -0.22, -0.185, 0.20, 0, 3.14, 0
-HomePositionDown3_r2 = -0.22, -0.185, 0.025, 0, 3.14, 0
-HomePosition4_r2 = -0.22, -0.185, 0.22, 0, 3.14, 0
-HomePositionDown4_r2 = -0.22, -0.185, 0.1, 0, 3.14, 0
-HomePosition5_r2 = -0.22, -0.26, 0.22, 0, 3.14, 0
-HomePositionDown5_r2 = -0.22, -0.26, 0.1, 0, 3.14, 0
-HomePosition6_r2 = -0.22, -0.26, 0.22, 0, 3.14, 0
-HomePositionDown6_r2 = -0.22, -0.26, 0.1, 0, 3.14, 0
+HomePosition1_r2 = -0.26, -0.11, 0.20, 0, 3.14, 0
+HomePositionDown1_r2 = -0.26, -0.11, 0.025, 0, 3.14, 0
+HomePosition2_r2 = -0.26, -0.185, 0.20, 0, 3.14, 0
+HomePositionDown2_r2 = -0.26, -0.185, 0.025, 0, 3.14, 0
+HomePosition3_r2 = -0.26, -0.26, 0.20, 0, 3.14, 0
+HomePositionDown3_r2 = -0.26, -0.26, 0.025, 0, 3.14, 0
+HomePosition4_r2 = -0.26, -0.11, 0.22, 0, 3.14, 0
+HomePositionDown4_r2 = -0.26, -0.11, 0.1, 0, 3.14, 0
+HomePosition5_r2 = -0.26, -0.185, 0.22, 0, 3.14, 0
+HomePositionDown5_r2 = -0.26, -0.185, 0.1, 0, 3.14, 0
+HomePosition6_r2 = -0.26, -0.26, 0.22, 0, 3.14, 0
+HomePositionDown6_r2 = -0.26, -0.26, 0.1, 0, 3.14, 0
 
 ConveyorPosition1_r2 = 0.006, 0.246, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r2 = 0.006, 0.246, 0, 0, 3.14, 0
@@ -196,6 +196,7 @@ def locateObject_r1(object, camera0, camera1, camera2):
             y_r1 = float(y_r1)
             x_r1 = float(x_r1)
             x_r1 = x_r1*0.93
+            y_r1 = y_r1*0.93
             x_r1 = x_r1  /1000
             y_r1 = y_r1  /1000
             time.sleep(1)
@@ -230,6 +231,7 @@ def locateObject_r2(object, camera0, camera1, camera2):
             y_r2 = float(y_r2)
             x_r2 = float(x_r2)
             x_r2 = x_r2*0.93
+            y_r2 = y_r2*0.93
             x_r2 = x_r2  /1000
             y_r2 = y_r2 /1000
             time.sleep(1)
