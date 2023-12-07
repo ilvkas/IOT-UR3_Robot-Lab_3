@@ -61,17 +61,17 @@ transitionHomePos_r1 = 0.0, -0.3, 0.20, 0, 3.14, 0
 transitionConvPos_r1 = -0.25, -0.22, 0.20, 0, 3.14, 0
 
 HomePosition1_r1 = 0.35, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown1_r1 = 0.35, -0.13, 0.01, 0, 3.14, 0
+HomePositionDown1_r1 = 0.35, -0.13, 0.05, 0, 3.14, 0
 HomePosition2_r1 = 0.25, -0.13, 0.15, 0, 3.14, 0
-HomePositionDown2_r1 = 0.25, -0.13, 0.01, 0, 3.14, 0
+HomePositionDown2_r1 = 0.25, -0.13, 0.05, 0, 3.14, 0
 HomePosition3_r1 = 0.35, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown3_r1 = 0.35, -0.23, 0.01, 0, 3.14, 0
+HomePositionDown3_r1 = 0.35, -0.23, 0.05, 0, 3.14, 0
 HomePosition4_r1 = 0.25, -0.23, 0.15, 0, 3.14, 0
-HomePositionDown4_r1 = 0.25, -0.23, 0.01, 0, 3.14, 0
+HomePositionDown4_r1 = 0.25, -0.23, 0.05, 0, 3.14, 0
 HomePosition5_r1 = 0.35, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown5_r1 = 0.35, -0.33, 0.01, 0, 3.14, 0
+HomePositionDown5_r1 = 0.35, -0.33, 0.05, 0, 3.14, 0
 HomePosition6_r1 = 0.25, -0.33, 0.15, 0, 3.14, 0
-HomePositionDown6_r1 = 0.25, -0.33, 0.01, 0, 3.14, 0
+HomePositionDown6_r1 = 0.25, -0.33, 0.05, 0, 3.14, 0
 
 ConveyorPosition1_r1 = 0.091, 0.334, 0.15, 0, 3.14, 0
 ConveyorPositionDown1_r1 = 0.091, 0.334, 0, 0, 3.14, 0
