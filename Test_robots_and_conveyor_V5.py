@@ -387,7 +387,6 @@ def CylinderConveyorToHome():
     time.sleep(0.6)
     move(rob2, pickObjectConveyor_r2, True)
     move(rob2, transitionConvPos2_r2, True)
-    move(rob2, transitionConvPos_r2, True)
     move(rob2, placeObjectHome_r2, True)
     move(rob2, placeObjectHomeDown_r2, True)
     rob2.send_program(rq_open())
