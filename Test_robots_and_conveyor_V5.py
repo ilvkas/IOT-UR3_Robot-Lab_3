@@ -11,10 +11,12 @@ r1="158.39.162.177"
 #this is the right robot
 r2="158.39.162.151"
 
-cam10='http://158.39.162.199/CmdChannel?sINT_1_2'
+cam101='http://158.39.162.190/CmdChannel?sINT_1_2'
+cam102='http://158.39.162.190/CmdChannel?sINT_1_3'
 cam11='http://158.39.162.190/CmdChannel?TRIG'
 cam12='http://158.39.162.190/CmdChannel?gRES'
-cam20='http://158.39.162.199/CmdChannel?sINT_1_3'
+cam201='http://158.39.162.199/CmdChannel?sINT_1_2'
+cam202='http://158.39.162.199/CmdChannel?sINT_1_3'
 cam21='http://158.39.162.199/CmdChannel?TRIG'
 cam22='http://158.39.162.199/CmdChannel?gRES'
 
@@ -42,7 +44,7 @@ CubeConveyorPlaced = 0
 
 
 #positions x, y, z, rx, ry, rz
-clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
+#clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
 
 #We have to change all the coordonates
 placeObjectHome_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
@@ -250,7 +252,7 @@ def setConveyorSpeed(voltage):
 
 #Transition cylinder to conveyor (T1)
 def CylinderToConveyor():
-    if locateObject_r1(3,cam10,cam11,cam12) == 1:
+    if locateObject_r1(3,cam102,cam11,cam12) == 1:
         global x_r1, y_r1, placeObjectConveyor_r1, placeObjectConveyorDown_r1, CylinderConveyorCount, CylinderConveyorPlaced
 
         if CylinderConveyorCount == 1:
@@ -361,6 +363,7 @@ def CylinderConveyorToHome():
     rob2.send_program(rq_open())
     time.sleep(0.6)
     move(rob2, placeObjectHome_r2, True)
+    move(rob2, transitionConvPos_r2, True)
     time.sleep(0.2)
     objectCount += 1
     CylinderHomeCount += 1
@@ -368,7 +371,7 @@ def CylinderConveyorToHome():
 
 #Transition cube to conveyor (T4)
 def CubeToConveyor():
-    if locateObject_r2(2,cam20,cam21,cam22) == 1:
+    if locateObject_r2(2,cam201,cam21,cam22) == 1:
         global x_r2, y_r2, placeObjectConveyor_r2, placeObjectConveyorDown_r2, CubeConveyorCount
 
         if CubeConveyorCount == 1:
@@ -478,6 +481,7 @@ def CubeConveyorToHome():
     rob.send_program(rq_open())
     time.sleep(0.6)
     move(rob, placeObjectHome_r1, True)
+    move(rob, transitionConvPos_r1, True)
     time.sleep(0.2)
     objectCount += 1
     CubeHomeCount += 1
@@ -485,7 +489,7 @@ def CubeConveyorToHome():
 
 #Transition cube to home (T7)
 def CubeToHome():
-    if locateObject_r1(2,cam10,cam11,cam12) == 1:
+    if locateObject_r1(2,cam101,cam11,cam12) == 1:
         global x_r1, y_r1, placeObjectHome_r1, placeObjectHomeDown_r1, objectCount, CubeHomeCount
 
         if CubeHomeCount%6 == 0:
@@ -529,6 +533,7 @@ def CubeToHome():
         rob.send_program(rq_open())
         time.sleep(0.6)
         move(rob, placeObjectHome_r1, True)
+        move(rob, transitionConvPos_r1, True)
         time.sleep(0.2)
         objectCount += 1
         CubeHomeCount += 1
@@ -538,7 +543,7 @@ def CubeToHome():
 
 #Transition cylinder to home (T8)
 def CylinderToHome():
-    if locateObject_r2(3,cam20,cam21,cam22) == 1:
+    if locateObject_r2(3,cam202,cam21,cam22) == 1:
         global x_r2, y_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
 
         if CylinderHomeCount%6 == 0:
@@ -582,6 +587,7 @@ def CylinderToHome():
         rob2.send_program(rq_open())
         time.sleep(0.6)
         move(rob2, placeObjectHome_r2, True)
+        move(rob2, transitionConvPos_r2, True)
         time.sleep(0.2)
         objectCount += 1
         CylinderHomeCount += 1
@@ -615,17 +621,17 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, clearCamera, True)
-move(rob2, clearCamera, True)
+move(rob, transitionConvPos_r1, True)
+move(rob2, transitionConvPos_r2, True)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
-    if locateObject_r1(3,cam10,cam11,cam12) == 1:
+    if locateObject_r1(3,cam102,cam11,cam12) == 1:
         while True :
-            if locateObject_r1(3,cam10,cam11,cam12) == 0:
+            if locateObject_r1(3,cam102,cam11,cam12) == 0:
                 break
             else:
-                if locateObject_r2(3,cam20,cam21,cam22) == 1:
+                if locateObject_r2(3,cam202,cam21,cam22) == 1:
                     CylinderConveyorCount += 1
                     Thread_1 = Thread(target=CylinderToConveyor)
                     Thread_2 = Thread(target=CylinderToHome)
@@ -633,7 +639,7 @@ while objectCount < 12:
                     Thread_2.start()
                     Thread_1.join()
                     Thread_2.join()
-                elif locateObject_r2(3,cam20,cam21,cam22) == 0:
+                elif locateObject_r2(3,cam202,cam21,cam22) == 0:
                     CylinderConveyorCount += 1
                     CylinderToConveyor()
         CylinderConveyorCount = 0
@@ -641,7 +647,7 @@ while objectCount < 12:
         time.sleep(7.5)
         stopConveyor()
         while CylinderConveyorCount < CylinderConveyorPlaced:
-            if locateObject_r1(2,cam10,cam11,cam12) == 1:
+            if locateObject_r1(2,cam101,cam11,cam12) == 1:
                 CylinderConveyorCount += 1
                 Thread_1 = Thread(target=CylinderConveyorToHome)
                 Thread_2 = Thread(target=CubeToHome)
@@ -649,19 +655,19 @@ while objectCount < 12:
                 Thread_2.start()
                 Thread_1.join()
                 Thread_2.join()
-            elif locateObject_r1(2,cam10,cam11,cam12) == 0:
+            elif locateObject_r1(2,cam101,cam11,cam12) == 0:
                 CylinderConveyorCount += 1
                 CylinderConveyorToHome()
         CylinderConveyorCount = 0
         CylinderConveyorPlaced = 0
     
 
-    elif locateObject_r2(2,cam20,cam21,cam22) == 1:
+    elif locateObject_r2(2,cam201,cam21,cam22) == 1:
         while True :
-            if locateObject_r2(2,cam20,cam21,cam22) == 0:
+            if locateObject_r2(2,cam201,cam21,cam22) == 0:
                 break
             else:
-                if locateObject_r1(2,cam10,cam11,cam12) == 1:
+                if locateObject_r1(2,cam101,cam11,cam12) == 1:
                     CubeConveyorCount += 1
                     Thread_1 = Thread(target=CubeToConveyor)
                     Thread_2 = Thread(target=CubeToHome)
@@ -669,7 +675,7 @@ while objectCount < 12:
                     Thread_2.start()
                     Thread_1.join()
                     Thread_2.join()
-                elif locateObject_r1(2,cam10,cam11,cam12) == 0:
+                elif locateObject_r1(2,cam101,cam11,cam12) == 0:
                     CubeConveyorCount += 1
                     CubeToConveyor()
         CubeConveyorCount = 0
@@ -677,7 +683,7 @@ while objectCount < 12:
         time.sleep(7.5)
         stopConveyor()
         while CubeConveyorCount < CubeConveyorPlaced:
-            if locateObject_r1(2,cam10,cam11,cam12) == 1:
+            if locateObject_r1(2,cam101,cam11,cam12) == 1:
                 CubeConveyorCount += 1
                 Thread_1 = Thread(target=CubeConveyorToHome)
                 Thread_2 = Thread(target=CylinderToHome)
@@ -685,24 +691,24 @@ while objectCount < 12:
                 Thread_2.start()
                 Thread_1.join()
                 Thread_2.join()
-            elif locateObject_r1(2,cam10,cam11,cam12) == 1:
+            elif locateObject_r1(2,cam101,cam11,cam12) == 1:
                 CubeConveyorCount += 1
                 CubeConveyorToHome()
         CubeConveyorCount = 0
         CubeConveyorPlaced = 0
 
     
-    elif locateObject_r1(2,cam10,cam11,cam12) == 1 or locateObject_r2(3,cam20,cam21,cam22) == 1:
-        if locateObject_r1(2,cam10,cam11,cam12) == 1 and locateObject_r2(3,cam20,cam21,cam22) == 1:
+    elif locateObject_r1(2,cam101,cam11,cam12) == 1 or locateObject_r2(3,cam202,cam21,cam22) == 1:
+        if locateObject_r1(2,cam101,cam11,cam12) == 1 and locateObject_r2(3,cam202,cam21,cam22) == 1:
             Thread_1 = Thread(target=CubeToHome)
             Thread_2 = Thread(target=CylinderToHome)
             Thread_1.start()
             Thread_2.start()
             Thread_1.join()
             Thread_2.join()
-        elif locateObject_r1(2,cam10,cam11,cam12) == 1:
+        elif locateObject_r1(2,cam101,cam11,cam12) == 1:
             CubeToHome()
-        elif locateObject_r2(3,cam20,cam21,cam22) == 1:
+        elif locateObject_r2(3,cam202,cam21,cam22) == 1:
             CylinderToHome()
         else:
             break
