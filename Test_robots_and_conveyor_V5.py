@@ -21,8 +21,8 @@ cam21='http://158.39.162.199/CmdChannel?TRIG'
 cam22='http://158.39.162.199/CmdChannel?gRES'
 
 #robot velocity and acceleration
-v = 0.8
-a = 0.5
+v = 1.0
+a = 0.6
 #these x and y values are the distance from the robot base to the middle of the camera
 x = 0
 y = 0
@@ -353,7 +353,7 @@ def CylinderConveyorToHome():
         pickObjectConveyorDown_r2 = ConveyorPickPositionDown6_r2
 
     if CylinderHomeCount%6 == 0 and CylinderHomeCount != 0 :
-        CylinderHomeCount = 4
+        CylinderHomeCount = 3
 
     if CylinderHomeCount == 0:
         placeObjectHome_r2 = HomePosition1_r2
@@ -581,7 +581,7 @@ def CylinderToHome():
         global x_r2, y_r2, placeObjectHome_r2, placeObjectHomeDown_r2, objectCount, CylinderHomeCount
 
         if CylinderHomeCount%6 == 0 and CylinderHomeCount != 0:
-            CylinderHomeCount = 4
+            CylinderHomeCount = 3
 
         if CylinderHomeCount == 0:
             placeObjectHome_r2 = HomePosition1_r2
