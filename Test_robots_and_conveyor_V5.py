@@ -44,7 +44,8 @@ CubeConveyorPlaced = 0
 
 
 #positions x, y, z, rx, ry, rz
-#clearCamera = 0.25, -0.22, 0.20, 0, 3.14, 0
+clearCamera_r1 = -0.25, 0.0, 0.20, 0, 3.14, 0
+clearCamera_r2 = -0.25, 0.0, 0.20, 0, 3.14, 0
 
 #We have to change all the coordonates
 placeObjectHome_r1 = 0.3, -0.15, 0.15, 0, 3.14, 0
@@ -621,8 +622,8 @@ time.sleep(0.1)
 #sets robot tcp, the distance from robot flange to gripper tips. 
 rob2.set_tcp((0,0,0.16,0,0,0))
 
-move(rob, transitionConvPos_r1, True)
-move(rob2, transitionConvPos_r2, True)
+move(rob, clearCamera_r1, True)
+move(rob2, clearCamera_r2, True)
 setConveyorSpeed(0.3)
 
 while objectCount < 12:
