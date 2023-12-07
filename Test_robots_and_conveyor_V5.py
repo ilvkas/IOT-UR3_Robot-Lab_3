@@ -109,15 +109,15 @@ placeObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 pickObjectConveyor_r2 = 0.05, 0.4, 0.20, 0, 3.14, 0
 pickObjectConveyorDown_r2 = 0.05, 0.4, 0.010, 0, 3.14, 0
 
-transitionHomePos_r2 = 0.0, -0.3, 0.20, 0, 3.14, 0 
-transitionConvPos_r2 = -0.25, -0.22, 0.20, 0, 3.14, 0
-transitionConvPos2_r2 = -0.25, 0.21, 0.20, 0, 3.14, 0
+transitionHomePos_r2 = 0.0, -0.3, 0.22, 0, 3.14, 0 
+transitionConvPos_r2 = -0.25, -0.22, 0.22, 0, 3.14, 0
+transitionConvPos2_r2 = -0.25, 0.21, 0.22, 0, 3.14, 0
 
-HomePosition1_r2 = -0.26, -0.11, 0.20, 0, 3.14, 0
+HomePosition1_r2 = -0.26, -0.11, 0.22, 0, 3.14, 0
 HomePositionDown1_r2 = -0.26, -0.11, 0.025, 0, 3.14, 0
-HomePosition2_r2 = -0.26, -0.185, 0.20, 0, 3.14, 0
+HomePosition2_r2 = -0.26, -0.185, 0.22, 0, 3.14, 0
 HomePositionDown2_r2 = -0.26, -0.185, 0.025, 0, 3.14, 0
-HomePosition3_r2 = -0.26, -0.26, 0.20, 0, 3.14, 0
+HomePosition3_r2 = -0.26, -0.26, 0.22, 0, 3.14, 0
 HomePositionDown3_r2 = -0.26, -0.26, 0.025, 0, 3.14, 0
 HomePosition4_r2 = -0.26, -0.11, 0.22, 0, 3.14, 0
 HomePositionDown4_r2 = -0.26, -0.11, 0.1, 0, 3.14, 0
@@ -423,7 +423,7 @@ def CubeToConveyor():
             placeObjectConveyor_r2 = ConveyorPosition6_r2
             placeObjectConveyorDown_r2 = ConveyorPositionDown6_r2
 
-        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.22, 0.0, 3.14, 0.0
         pickPos = x_r2, y_r2, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
@@ -602,7 +602,7 @@ def CylinderToHome():
             placeObjectHome_r2 = HomePosition6_r2
             placeObjectHomeDown_r2 = HomePositionDown6_r2
 
-        overPickPos = x_r2, y_r2, 0.1, 0.0, 3.14, 0.0
+        overPickPos = x_r2, y_r2, 0.22, 0.0, 3.14, 0.0
         pickPos = x_r2, y_r2, 0.02, 0.0, 3.14, 0.0
         print(pickPos)
         rob2.send_program(rq_open())
