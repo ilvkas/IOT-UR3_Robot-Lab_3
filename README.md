@@ -15,3 +15,4 @@ Nudge allowed: The camera does not find the locations of blocks very accurately.
 - Python Version 3.7.3 is required.
 - requirements.txt contains all the required packages to run the program.
 - Gripper.py & Gripper.script need to be in the same folder as your script.
+- main.py is the script run in the lab.
